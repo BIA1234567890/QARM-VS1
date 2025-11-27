@@ -1939,49 +1939,74 @@ def page_investment_approach():
             line-height: 1.8;
             color: #2e2e2e;
         }
-
-        .section-text ul {
-            margin-top: 0;
-            padding-left: 22px;
-        }
-
-        .section-text li {
-            margin-bottom: 8px;
-        }
     </style>
     """, unsafe_allow_html=True)
 
+    # SECTION 1 – Customization and Preferences
+    st.markdown('<div class="section-container section-white">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">1. Customization and Preferences</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-text">
+    Our investment approach is deeply rooted in customization. Every portfolio we construct is tailored to the specific needs, preferences, and constraints of each individual client. Rather than using a one-size-fits-all model, we gather key inputs such as risk appetite, ESG considerations, cost sensitivities, and liquidity needs. These factors shape both the construction and ongoing management of the investment strategy.
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
     # SECTION 2 – Risk and ESG preferences
     st.markdown('<div class="section-container section-light">', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">2. Risk and ESG preferences</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">2. Risk and ESG Preferences</div>', unsafe_allow_html=True)
 
     st.markdown('<div class="subsection-title">Risk profile</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="section-text">
-    <ul>
-        <li>Each client answers a short questionnaire.</li>
-        <li>Answers are mapped to a <strong>risk level</strong>: more conservative or more growth-oriented.</li>
-        <li>This risk level determines how much priority we give to capital preservation vs. return potential.</li>
-    </ul>
+    Each client completes a risk questionnaire that helps us define their overall investment profile. This process assigns a risk level ranging from conservative to aggressive, helping us balance the trade-off between capital preservation and growth potential in a disciplined and transparent way.
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="subsection-title">ESG integration</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="section-text">
-    <ul>
-        <li>Most of the equity in our universe has an <strong>ESG score</strong>.</li>
-        <li>We group these scores into three buckets: <strong>Low (L)</strong>, <strong>Medium (M)</strong> and <strong>High (H)</strong>.</li>
-        <li>Clients can:
-            <ul>
-                <li>Exclude certain buckets (e.g. no <strong>L</strong> names),</li>
-                <li>Set minimum or maximum exposure to each ESG bucket within the equity allocation.</li>
-            </ul>
-        </li>
-        <li>These preferences are treated as <strong>hard portfolio constraints</strong> during optimisation.</li>
-    </ul>
+    ESG factors are integrated directly into the portfolio construction process. Each equity is assigned an ESG score, and these scores are grouped into Low (L), Medium (M), and High (H) categories. Clients can request to exclude certain buckets — for instance, avoiding L-rated names — or they can set specific minimum and maximum allocation levels for each ESG category. These constraints are treated as strict portfolio rules within our optimization engine to ensure that sustainability preferences are respected at all times.
     </div>
     """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # SECTION 3 – Costs and Fees
+    st.markdown('<div class="section-container section-white">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">3. Costs and Fees in the Backtest</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="subsection-title">Transaction costs</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-text">
+    We incorporate a realistic estimate of transaction costs to ensure our backtests reflect actual implementation friction. A proportional fee of 0.1% is applied on each trade. Additionally, we track portfolio turnover — that is, how frequently the portfolio composition changes — and deduct these costs from the portfolio's wealth before computing net performance.
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # SECTION 4 – Optimization approach
+    st.markdown('<div class="section-container section-light">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">4. Optimization Framework</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="subsection-title">Markowitz model</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-text">
+    At the heart of our approach lies the classical Markowitz framework for mean-variance optimization. This model aims to find the most efficient allocation of capital across a set of assets by maximizing expected return for a given level of risk. It ensures full capital deployment and imposes constraints to keep portfolio weights within realistic bounds.
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="subsection-title">Additional constraints</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-text">
+    In addition to ESG and risk-based constraints, we apply technical rules to control exposure to illiquid securities, prevent over-concentration in any single position, and enforce sector or geographic diversification when necessary. These layers of logic reflect real-world constraints often faced by institutional portfolios.
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # SECTION 5 – Rebalancing logic
+    st.markdown('<div class="section-container section-white">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">5. Rebalancing and Portfolio Updates</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="section-text">We review and rebalance client portfolios on a monthly basis. This ensures that any deviations from the original allocation — whether due to market movements or changing client inputs — are systematically corrected. The rebalancing mechanism is designed to be efficient, cost-aware, and fully aligned with the client's long-term investment objectives.</div>', unsafe_allow_html=True)
 
     st.markdown('</div>', unsafe_allow_html=True)
 
