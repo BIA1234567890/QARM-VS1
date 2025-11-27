@@ -1896,108 +1896,115 @@ def page_ai_assistant():
 
 
 def page_investment_approach():
-    st.title("Our investment approach")
-
-    st.markdown(
-        """
-At Phi Investment Capital, we combine quantitative tools with clear, transparent rules.
-This page gives a high-level overview of how we build and manage portfolios for our clients.
-        """
-    )
+    st.markdown("""
+    <style>
+        .section {
+            background: #f9fafc;
+            padding: 40px 40px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #374151;
+        }
+        .section ul {
+            font-size: 17px;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        .section li {
+            margin-bottom: 6px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
     # 1. How we build portfolios
-    st.subheader("1. How we build portfolios")
+    st.markdown('<div class="section">', unsafe_allow_html=True)
+    st.markdown("### 1. How we build portfolios", unsafe_allow_html=True)
+    st.markdown("""
+    - We invest across **equities** and selected **complementary asset classes** (e.g. bonds, commodities).
+    - Portfolios are **long-only and fully invested** – no leverage, no short-selling.
+    - We use historical market data to estimate:
+        - **Expected returns** per asset,
+        - **Risk and diversification** via the covariance of returns.
+    - A risk parameter, derived from the **client’s risk profile**, controls how much risk the optimiser is allowed to take.
+    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown(
-        """
-- We invest across **equities** and selected **complementary asset classes** (e.g. bonds, commodities).
-- Portfolios are **long-only** and **fully invested** – no leverage, no short-selling.
-- We use historical market data to estimate:
-  - **Expected returns** per asset,
-  - **Risk and diversification** via the covariance of returns.
-- A risk parameter, derived from the **client’s risk profile**, controls how much risk the optimiser is allowed to take.
-        """
-    )
+    # 2. Risk and ESG preferences
+    st.markdown('<div class="section">', unsafe_allow_html=True)
+    st.markdown("### 2. Risk and ESG preferences", unsafe_allow_html=True)
+    st.markdown("**Risk profile**", unsafe_allow_html=True)
+    st.markdown("""
+    - Each client answers a short questionnaire.
+    - Answers are mapped to a **risk level**: more conservative or more growth-oriented.
+    - This risk level determines how much priority we give to capital preservation vs. return potential.
+    """, unsafe_allow_html=True)
+    st.markdown("**ESG integration**", unsafe_allow_html=True)
+    st.markdown("""
+    - Most of the equity in our universe has an **ESG score**.
+    - We group these scores into three buckets: **Low (L)**, **Medium (M)** and **High (H)**.
+    - Clients can:
+        - Exclude certain buckets (e.g. no **L** names),
+        - Set minimum or maximum exposure to each ESG bucket within the equity allocation.
+    - These preferences are treated as **hard portfolio constraints** during optimisation.
+    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-    # 2. Risk & ESG preferences
-    st.subheader("2. Risk and ESG preferences")
+    # 3. Costs and fees
+    st.markdown('<div class="section">', unsafe_allow_html=True)
+    st.markdown("### 3. Costs and fees in the backtest", unsafe_allow_html=True)
+    st.markdown("**Transaction costs**", unsafe_allow_html=True)
+    st.markdown("""
+    - We assume a simple **proportional cost** – 0.1%.
+    - At each rebalance, we measure **turnover** (how much the portfolio changes).
+    - Estimated transaction costs are deducted from wealth before computing net performance.
+    """, unsafe_allow_html=True)
+    st.markdown("**Management fees**", unsafe_allow_html=True)
+    st.markdown("""
+    - We apply a **tiered annual management fee**, depending on the client's initial wealth:
+        - Below CHF 10m: **0.50% p.a.**
+        - CHF 10m – 20m: **0.45% p.a.**
+        - CHF 20m – 30m: **0.40% p.a.**
+        - CHF 30m – 50m: **0.35% p.a.**
+        - CHF 50m – 100m: **0.30% p.a.**
+        - Above CHF 100m: **0.25% p.a.**
+    - In the backtest, this fee is converted to a **monthly charge** and deducted over time.
+    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown(
-        """
-**Risk profile**
+    # 4. Rebalancing
+    st.markdown('<div class="section">', unsafe_allow_html=True)
+    st.markdown("### 4. Rebalancing and minimum investment", unsafe_allow_html=True)
+    st.markdown("""
+    - Portfolios are rebalanced on a **regular schedule** (e.g. monthly, quarterly or annually), using updated market data and the same investment rules.
+    - A **minimum investment amount** of 1'000'000 is assumed to ensure:
+        - Proper diversification across many securities,
+        - Practical implementation of the strategy.
+    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-- Each client answers a short questionnaire.
-- Answers are mapped to a **risk level**: more conservative or more growth-oriented.
-- This risk level determines how much priority we give to capital preservation vs. return potential.
+    # 5. Disclaimer
+    st.markdown('<div class="section">', unsafe_allow_html=True)
+    st.markdown("### 5. Assumptions and disclaimer", unsafe_allow_html=True)
+    st.markdown("""
+    Our simulations are based on historical data and a number of simplifying assumptions:
+    - Markets are liquid enough to execute trades at observed prices.
+    - We do not model **taxes**.
+    - Transaction costs are represented by a simple percentage cost on turnover.
+    - Historical returns and risks may differ from those realised in the future.
 
-**ESG integration**
-
-- Most of the equity in our universe has an **ESG score**.
-- We group these scores into three buckets: **Low (L)**, **Medium (M)** and **High (H)**.
-- Clients can:
-  - Exclude certain buckets (e.g. no **L** names),
-  - Set minimum or maximum exposure to each ESG bucket within the equity allocation.
-- These preferences are treated as **hard portfolio constraints** during optimisation.
-        """
-    )
-
-    # 3. Costs and fees in the backtest
-    st.subheader("3. Costs and fees in the backtest")
-
-    st.markdown(
-        """
-To keep the simulations realistic, we model both **transaction costs** and **management fees**.
-
-**Transaction costs**
-
-- We assume a simple **proportional cost** - 0.1%.
-- At each rebalance, we measure **turnover** (how much the portfolio changes).
-- Estimated transaction costs are deducted from wealth before computing net performance.
-
-**Management fees**
-
-- We apply a **tiered annual management fee**, depending on the client's initial wealth:  
-- Below CHF 10m: **0.50% p.a.**
-- CHF 10m – 20m: **0.45% p.a.**
-- CHF 20m – 30m: **0.40% p.a.**
-- CHF 30m – 50m: **0.35% p.a.**
-- CHF 50m – 100m: **0.30% p.a.**
-- Above CHF 100m: **0.25% p.a.**
-
-- In the backtest, this fee is converted to a **monthly charge** and deducted over time.
-        """
-    )
-
-    # 4. Rebalancing and minimum investment
-    st.subheader("4. Rebalancing and minimum investment")
-
-    st.markdown(
-        """
-- Portfolios are rebalanced on a **regular schedule** (e.g. monthly, quarterly or annually),
-  using updated market data and the same investment rules.
-- A **minimum investment amount** of 1'000'000 is assumed to ensure:
-  - Proper diversification across many securities,
-  - Practical implementation of the strategy.
-        """
-    )
-
-    # 5. Key assumptions and disclaimer
-    st.subheader("5. Assumptions and disclaimer")
-
-    st.markdown(
-        """
-Our simulations are based on historical data and a number of simplifying assumptions:
-
-- Markets are liquid enough to execute trades at observed prices.
-- We do not model **taxes** fee.
-- Transaction costs are represented by a simple percentage cost on turnover.
-- Historical returns and risks may differ from those realised in the future.
-
-Backtested results are **hypothetical** and for **illustrative purposes only**.
-They do not represent actual client portfolios, and **past performance is not a reliable
-indicator of future results**. The information shown here does not constitute investment advice.
-        """
-    )
+    Backtested results are **hypothetical** and for **illustrative purposes only**. They do not represent actual client portfolios, and **past performance is not a reliable indicator of future results**. The information shown here does not constitute investment advice.
+    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
 
