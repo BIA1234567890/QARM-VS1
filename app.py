@@ -1898,113 +1898,166 @@ def page_ai_assistant():
 def page_investment_approach():
     st.markdown("""
     <style>
-        .section {
-            background: #f9fafc;
-            padding: 40px 40px;
-            border-radius: 16px;
-            margin-bottom: 32px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        html, body, [class*="css"] {
+            font-family: 'Inter', sans-serif;
         }
-        .section h2 {
-            font-size: 28px;
-            margin-bottom: 12px;
-            color: #1f2937;
+
+        .section-wrapper {
+            padding: 50px 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            background: #ffffff;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
         }
-        .section p {
-            font-size: 18px;
-            line-height: 1.8;
+
+        .alt-section {
+            background: #f6f8fa;
+        }
+
+        .section-title {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
             color: #374151;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
-        .section ul {
+
+        ul {
             font-size: 17px;
             line-height: 1.8;
+            color: #1f2937;
             padding-left: 20px;
+            margin-bottom: 0;
         }
-        .section li {
+
+        li {
             margin-bottom: 6px;
+        }
+
+        .icon {
+            font-size: 36px;
+            color: #4BA3FF;
+            margin-right: 14px;
+            vertical-align: middle;
         }
     </style>
     """, unsafe_allow_html=True)
 
     # 1. How we build portfolios
-    st.markdown('<div class="section">', unsafe_allow_html=True)
-    st.markdown("### 1. How we build portfolios", unsafe_allow_html=True)
+    st.markdown('<div class="section-wrapper">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">1. How we build portfolios</div>', unsafe_allow_html=True)
     st.markdown("""
-    - We invest across **equities** and selected **complementary asset classes** (e.g. bonds, commodities).
-    - Portfolios are **long-only and fully invested** – no leverage, no short-selling.
-    - We use historical market data to estimate:
-        - **Expected returns** per asset,
-        - **Risk and diversification** via the covariance of returns.
-    - A risk parameter, derived from the **client’s risk profile**, controls how much risk the optimiser is allowed to take.
+    <div class="section-subtitle">
+        Our portfolios blend academic research with practical constraints — designed for institutional depth, but built for clarity.
+    </div>
+    <ul>
+        <li>We invest across <strong>equities</strong> and selected <strong>complementary asset classes</strong> (e.g. bonds, commodities).</li>
+        <li>Portfolios are <strong>long-only and fully invested</strong> – no leverage, no short-selling.</li>
+        <li>We use historical market data to estimate:
+            <ul>
+                <li><strong>Expected returns</strong> per asset,</li>
+                <li><strong>Risk and diversification</strong> via the covariance of returns.</li>
+            </ul>
+        </li>
+        <li>A risk parameter, derived from the <strong>client’s risk profile</strong>, controls how much risk the optimiser is allowed to take.</li>
+    </ul>
+    </div>
     """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     # 2. Risk and ESG preferences
-    st.markdown('<div class="section">', unsafe_allow_html=True)
-    st.markdown("### 2. Risk and ESG preferences", unsafe_allow_html=True)
-    st.markdown("**Risk profile**", unsafe_allow_html=True)
+    st.markdown('<div class="section-wrapper alt-section">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">2. Risk and ESG preferences</div>', unsafe_allow_html=True)
     st.markdown("""
-    - Each client answers a short questionnaire.
-    - Answers are mapped to a **risk level**: more conservative or more growth-oriented.
-    - This risk level determines how much priority we give to capital preservation vs. return potential.
+    <div class="section-subtitle"><strong>Risk profile</strong></div>
+    <ul>
+        <li>Each client answers a short questionnaire.</li>
+        <li>Answers are mapped to a <strong>risk level</strong>: more conservative or more growth-oriented.</li>
+        <li>This risk level determines how much priority we give to capital preservation vs. return potential.</li>
+    </ul>
+    <br>
+    <div class="section-subtitle"><strong>ESG integration</strong></div>
+    <ul>
+        <li>Most of the equity in our universe has an <strong>ESG score</strong>.</li>
+        <li>We group these scores into three buckets: <strong>Low (L)</strong>, <strong>Medium (M)</strong> and <strong>High (H)</strong>.</li>
+        <li>Clients can:
+            <ul>
+                <li>Exclude certain buckets (e.g. no <strong>L</strong> names),</li>
+                <li>Set minimum or maximum exposure to each ESG bucket within the equity allocation.</li>
+            </ul>
+        </li>
+        <li>These preferences are treated as <strong>hard portfolio constraints</strong> during optimisation.</li>
+    </ul>
+    </div>
     """, unsafe_allow_html=True)
-    st.markdown("**ESG integration**", unsafe_allow_html=True)
-    st.markdown("""
-    - Most of the equity in our universe has an **ESG score**.
-    - We group these scores into three buckets: **Low (L)**, **Medium (M)** and **High (H)**.
-    - Clients can:
-        - Exclude certain buckets (e.g. no **L** names),
-        - Set minimum or maximum exposure to each ESG bucket within the equity allocation.
-    - These preferences are treated as **hard portfolio constraints** during optimisation.
-    """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     # 3. Costs and fees
-    st.markdown('<div class="section">', unsafe_allow_html=True)
-    st.markdown("### 3. Costs and fees in the backtest", unsafe_allow_html=True)
-    st.markdown("**Transaction costs**", unsafe_allow_html=True)
+    st.markdown('<div class="section-wrapper">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">3. Costs and fees in the backtest</div>', unsafe_allow_html=True)
     st.markdown("""
-    - We assume a simple **proportional cost** – 0.1%.
-    - At each rebalance, we measure **turnover** (how much the portfolio changes).
-    - Estimated transaction costs are deducted from wealth before computing net performance.
+    <div class="section-subtitle"><strong>Transaction costs</strong></div>
+    <ul>
+        <li>We assume a simple <strong>proportional cost</strong> – 0.1%.</li>
+        <li>At each rebalance, we measure <strong>turnover</strong> (how much the portfolio changes).</li>
+        <li>Estimated transaction costs are deducted from wealth before computing net performance.</li>
+    </ul>
+    <br>
+    <div class="section-subtitle"><strong>Management fees</strong></div>
+    <ul>
+        <li>We apply a <strong>tiered annual management fee</strong>, depending on the client's initial wealth:
+            <ul>
+                <li>Below CHF 10m: <strong>0.50% p.a.</strong></li>
+                <li>CHF 10m – 20m: <strong>0.45% p.a.</strong></li>
+                <li>CHF 20m – 30m: <strong>0.40% p.a.</strong></li>
+                <li>CHF 30m – 50m: <strong>0.35% p.a.</strong></li>
+                <li>CHF 50m – 100m: <strong>0.30% p.a.</strong></li>
+                <li>Above CHF 100m: <strong>0.25% p.a.</strong></li>
+            </ul>
+        </li>
+        <li>In the backtest, this fee is converted to a <strong>monthly charge</strong> and deducted over time.</li>
+    </ul>
+    </div>
     """, unsafe_allow_html=True)
-    st.markdown("**Management fees**", unsafe_allow_html=True)
-    st.markdown("""
-    - We apply a **tiered annual management fee**, depending on the client's initial wealth:
-        - Below CHF 10m: **0.50% p.a.**
-        - CHF 10m – 20m: **0.45% p.a.**
-        - CHF 20m – 30m: **0.40% p.a.**
-        - CHF 30m – 50m: **0.35% p.a.**
-        - CHF 50m – 100m: **0.30% p.a.**
-        - Above CHF 100m: **0.25% p.a.**
-    - In the backtest, this fee is converted to a **monthly charge** and deducted over time.
-    """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     # 4. Rebalancing
-    st.markdown('<div class="section">', unsafe_allow_html=True)
-    st.markdown("### 4. Rebalancing and minimum investment", unsafe_allow_html=True)
+    st.markdown('<div class="section-wrapper alt-section">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">4. Rebalancing and minimum investment</div>', unsafe_allow_html=True)
     st.markdown("""
-    - Portfolios are rebalanced on a **regular schedule** (e.g. monthly, quarterly or annually), using updated market data and the same investment rules.
-    - A **minimum investment amount** of 1'000'000 is assumed to ensure:
-        - Proper diversification across many securities,
-        - Practical implementation of the strategy.
+    <ul>
+        <li>Portfolios are rebalanced on a <strong>regular schedule</strong> (e.g. monthly, quarterly or annually), using updated market data and the same investment rules.</li>
+        <li>A <strong>minimum investment amount</strong> of 1'000'000 is assumed to ensure:
+            <ul>
+                <li>Proper diversification across many securities,</li>
+                <li>Practical implementation of the strategy.</li>
+            </ul>
+        </li>
+    </ul>
+    </div>
     """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     # 5. Disclaimer
-    st.markdown('<div class="section">', unsafe_allow_html=True)
-    st.markdown("### 5. Assumptions and disclaimer", unsafe_allow_html=True)
+    st.markdown('<div class="section-wrapper">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">5. Assumptions and disclaimer</div>', unsafe_allow_html=True)
     st.markdown("""
-    Our simulations are based on historical data and a number of simplifying assumptions:
-    - Markets are liquid enough to execute trades at observed prices.
-    - We do not model **taxes**.
-    - Transaction costs are represented by a simple percentage cost on turnover.
-    - Historical returns and risks may differ from those realised in the future.
-
-    Backtested results are **hypothetical** and for **illustrative purposes only**. They do not represent actual client portfolios, and **past performance is not a reliable indicator of future results**. The information shown here does not constitute investment advice.
+    <ul>
+        <li>Markets are liquid enough to execute trades at observed prices.</li>
+        <li>We do not model <strong>taxes</strong>.</li>
+        <li>Transaction costs are represented by a simple percentage cost on turnover.</li>
+        <li>Historical returns and risks may differ from those realised in the future.</li>
+    </ul>
+    <br>
+    <div class="section-subtitle">
+        Backtested results are <strong>hypothetical</strong> and for <strong>illustrative purposes only</strong>. They do not represent actual client portfolios, and <strong>past performance is not a reliable indicator of future results</strong>. The information shown here does not constitute investment advice.
+    </div>
+    </div>
     """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
 
 
