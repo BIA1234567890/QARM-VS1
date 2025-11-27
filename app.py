@@ -2003,12 +2003,21 @@ def page_investment_approach():
     st.markdown('</div>', unsafe_allow_html=True)
 
     # SECTION 5 – Rebalancing logic
-    st.markdown('<div class="section-container section-white">', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">5. Rebalancing and Portfolio Updates</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-container section-white">', unsafe_allow_html=True)
+st.markdown('<div class="section-title">5. Rebalancing and Portfolio Updates</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="section-text">We review and rebalance client portfolios on a monthly basis. This ensures that any deviations from the original allocation — whether due to market movements or changing client inputs — are systematically corrected. The rebalancing mechanism is designed to be efficient, cost-aware, and fully aligned with the client's long-term investment objectives.</div>', unsafe_allow_html=True)
+st.markdown("""
+<div class="section-text">
+We review and rebalance client portfolios on a monthly basis. 
+This ensures that any deviations from the original allocation — whether due to market movements
+or changing client inputs — are systematically corrected. 
+The rebalancing mechanism is designed to be efficient, cost-aware, 
+and fully aligned with the client’s long-term investment objectives.
+</div>
+""", unsafe_allow_html=True)
 
-    st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 
