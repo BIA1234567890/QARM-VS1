@@ -1898,92 +1898,77 @@ def page_ai_assistant():
 def page_investment_approach():
     st.markdown("""
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-        html, body, [class*="css"] {
-            font-family: 'Inter', sans-serif;
+        body {
+            font-family: 'Open Sans', sans-serif;
         }
 
-        .section-wrapper {
-            padding: 50px 40px;
+        .section-container {
+            padding: 60px 60px;
+            margin-bottom: 30px;
             border-radius: 12px;
-            margin-bottom: 40px;
-            background: #ffffff;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
         }
 
-        .alt-section {
-            background: #f6f8fa;
+        .section-light {
+            background-color: #f7f9fb;
+        }
+
+        .section-white {
+            background-color: #ffffff;
         }
 
         .section-title {
-            font-size: 30px;
+            font-size: 32px;
             font-weight: 700;
-            margin-bottom: 16px;
-            color: #111827;
+            color: #1c1c1e;
+            margin-bottom: 24px;
+            border-bottom: 3px solid #00dbaf;
+            padding-bottom: 8px;
+            width: fit-content;
         }
 
-        .section-subtitle {
+        .subsection-title {
             font-size: 20px;
-            color: #374151;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333333;
         }
 
-        ul {
+        .section-text {
             font-size: 17px;
             line-height: 1.8;
-            color: #1f2937;
-            padding-left: 20px;
-            margin-bottom: 0;
+            color: #2e2e2e;
         }
 
-        li {
-            margin-bottom: 6px;
+        .section-text ul {
+            margin-top: 0;
+            padding-left: 22px;
         }
 
-        .icon {
-            font-size: 36px;
-            color: #4BA3FF;
-            margin-right: 14px;
-            vertical-align: middle;
+        .section-text li {
+            margin-bottom: 8px;
         }
     </style>
     """, unsafe_allow_html=True)
 
-    # 1. How we build portfolios
-    st.markdown('<div class="section-wrapper">', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">1. How we build portfolios</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="section-subtitle">
-        Our portfolios blend academic research with practical constraints — designed for institutional depth, but built for clarity.
-    </div>
-    <ul>
-        <li>We invest across <strong>equities</strong> and selected <strong>complementary asset classes</strong> (e.g. bonds, commodities).</li>
-        <li>Portfolios are <strong>long-only and fully invested</strong> – no leverage, no short-selling.</li>
-        <li>We use historical market data to estimate:
-            <ul>
-                <li><strong>Expected returns</strong> per asset,</li>
-                <li><strong>Risk and diversification</strong> via the covariance of returns.</li>
-            </ul>
-        </li>
-        <li>A risk parameter, derived from the <strong>client’s risk profile</strong>, controls how much risk the optimiser is allowed to take.</li>
-    </ul>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # 2. Risk and ESG preferences
-    st.markdown('<div class="section-wrapper alt-section">', unsafe_allow_html=True)
+    # SECTION 2 – Risk and ESG preferences
+    st.markdown('<div class="section-container section-light">', unsafe_allow_html=True)
     st.markdown('<div class="section-title">2. Risk and ESG preferences</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="subsection-title">Risk profile</div>', unsafe_allow_html=True)
     st.markdown("""
-    <div class="section-subtitle"><strong>Risk profile</strong></div>
+    <div class="section-text">
     <ul>
         <li>Each client answers a short questionnaire.</li>
         <li>Answers are mapped to a <strong>risk level</strong>: more conservative or more growth-oriented.</li>
         <li>This risk level determines how much priority we give to capital preservation vs. return potential.</li>
     </ul>
-    <br>
-    <div class="section-subtitle"><strong>ESG integration</strong></div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="subsection-title">ESG integration</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="section-text">
     <ul>
         <li>Most of the equity in our universe has an <strong>ESG score</strong>.</li>
         <li>We group these scores into three buckets: <strong>Low (L)</strong>, <strong>Medium (M)</strong> and <strong>High (H)</strong>.</li>
@@ -1998,66 +1983,7 @@ def page_investment_approach():
     </div>
     """, unsafe_allow_html=True)
 
-    # 3. Costs and fees
-    st.markdown('<div class="section-wrapper">', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">3. Costs and fees in the backtest</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="section-subtitle"><strong>Transaction costs</strong></div>
-    <ul>
-        <li>We assume a simple <strong>proportional cost</strong> – 0.1%.</li>
-        <li>At each rebalance, we measure <strong>turnover</strong> (how much the portfolio changes).</li>
-        <li>Estimated transaction costs are deducted from wealth before computing net performance.</li>
-    </ul>
-    <br>
-    <div class="section-subtitle"><strong>Management fees</strong></div>
-    <ul>
-        <li>We apply a <strong>tiered annual management fee</strong>, depending on the client's initial wealth:
-            <ul>
-                <li>Below CHF 10m: <strong>0.50% p.a.</strong></li>
-                <li>CHF 10m – 20m: <strong>0.45% p.a.</strong></li>
-                <li>CHF 20m – 30m: <strong>0.40% p.a.</strong></li>
-                <li>CHF 30m – 50m: <strong>0.35% p.a.</strong></li>
-                <li>CHF 50m – 100m: <strong>0.30% p.a.</strong></li>
-                <li>Above CHF 100m: <strong>0.25% p.a.</strong></li>
-            </ul>
-        </li>
-        <li>In the backtest, this fee is converted to a <strong>monthly charge</strong> and deducted over time.</li>
-    </ul>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # 4. Rebalancing
-    st.markdown('<div class="section-wrapper alt-section">', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">4. Rebalancing and minimum investment</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <ul>
-        <li>Portfolios are rebalanced on a <strong>regular schedule</strong> (e.g. monthly, quarterly or annually), using updated market data and the same investment rules.</li>
-        <li>A <strong>minimum investment amount</strong> of 1'000'000 is assumed to ensure:
-            <ul>
-                <li>Proper diversification across many securities,</li>
-                <li>Practical implementation of the strategy.</li>
-            </ul>
-        </li>
-    </ul>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # 5. Disclaimer
-    st.markdown('<div class="section-wrapper">', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">5. Assumptions and disclaimer</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <ul>
-        <li>Markets are liquid enough to execute trades at observed prices.</li>
-        <li>We do not model <strong>taxes</strong>.</li>
-        <li>Transaction costs are represented by a simple percentage cost on turnover.</li>
-        <li>Historical returns and risks may differ from those realised in the future.</li>
-    </ul>
-    <br>
-    <div class="section-subtitle">
-        Backtested results are <strong>hypothetical</strong> and for <strong>illustrative purposes only</strong>. They do not represent actual client portfolios, and <strong>past performance is not a reliable indicator of future results</strong>. The information shown here does not constitute investment advice.
-    </div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
 
