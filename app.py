@@ -1897,87 +1897,140 @@ def page_ai_assistant():
 
 import streamlit as st
 
-st.markdown("""
-<style>
-    .section-title {
-        font-size: 28px;
-        font-weight: 700;
-        color: #1c1c1e;
-        padding-left: 16px;
-        border-left: 6px solid #00dbaf;
-        margin-bottom: 24px;
+# Set page config
+st.set_page_config(page_title="Our Investment Approach", layout="wide")
+
+# Inject CSS for professional styling
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+    html, body, [class*="css"]  {
+        font-family: 'Open Sans', sans-serif;
     }
-    .section-container {
-        padding: 50px 60px;
+
+    .section {
+        background-color: #ffffff;
+        padding: 40px 50px;
         margin-bottom: 40px;
         border-radius: 16px;
-        box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.04);
-        background-color: #ffffff;
+        box-shadow: 0px 8px 30px rgba(0,0,0,0.05);
     }
-    .section-text {
-        font-size: 17px;
-        line-height: 1.8;
-        max-width: 900px;
-        margin: auto;
+
+    .section h2 {
+        font-size: 26px;
+        font-weight: 700;
+        color: #111111;
+        border-left: 5px solid #00dbaf;
+        padding-left: 16px;
+        margin-bottom: 25px;
     }
+
+    .section .section-text {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #333333;
+        margin-bottom: 16px;
+    }
+
     .highlight {
-        color: #00dbaf;
         font-weight: 600;
+        color: #00dbaf;
     }
-</style>
-""", unsafe_allow_html=True)
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Section 1: Customization and Preferences
-st.markdown('<div class="section-title">1. Customization and Preferences</div>', unsafe_allow_html=True)
-st.markdown('''
-<div class="section-container">
-    <div class="section-text">
-        Our investment approach is deeply rooted in <span class="highlight">customization</span>. Every portfolio we construct is tailored to the specific needs, preferences, and constraints of each individual client. Rather than using a one-size-fits-all model, we gather key inputs such as <span class="highlight">risk appetite</span>, <span class="highlight">ESG considerations</span>, <span class="highlight">cost sensitivities</span>, and <span class="highlight">liquidity requirements</span>. These factors shape both the construction and ongoing management of the investment strategy.
+# Section 1
+st.markdown(
+    """
+    <div class="section">
+        <h2><span class="section-number">1.</span> Customization and Preferences</h2>
+        <div class="section-text">
+            Our investment approach is deeply rooted in customization. Every portfolio we construct is tailored to the specific
+            needs, preferences, and constraints of each individual client. Rather than using a one-size-fits-all model,
+            we gather key inputs such as risk appetite, ESG considerations, cost sensitivities, and liquidity needs.
+            These factors shape both the construction and ongoing management of the investment strategy.
+        </div>
     </div>
-</div>
-''', unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-# Section 2: Risk and ESG Preferences
-st.markdown('<div class="section-title">2. Risk and ESG Preferences</div>', unsafe_allow_html=True)
-st.markdown('''
-<div class="section-container">
-    <div class="section-text">
-        Each client completes a risk questionnaire that helps us define their overall investment profile. This process assigns a <span class="highlight">risk level</span> ranging from conservative to aggressive, helping us balance the trade-off between <span class="highlight">capital preservation</span> and <span class="highlight">growth potential</span> in a disciplined and transparent way.<br><br>
-
-        ESG factors are integrated directly into the portfolio construction process. Each equity is assigned an <span class="highlight">ESG score</span>, and these scores are grouped into Low (L), Medium (M), and High (H) categories. Clients can request to exclude certain buckets — for instance, avoiding L-rated names — or they can set specific minimum and maximum allocation levels for each ESG category. These constraints are treated as strict portfolio rules within our optimization engine to ensure that sustainability preferences are respected at all times.
+# Section 2
+st.markdown(
+    """
+    <div class="section">
+        <h2><span class="section-number">2.</span> Risk and ESG Preferences</h2>
+        <div class="section-text">
+            Each client completes a risk questionnaire that helps us define their overall investment profile.
+            This process assigns a <span class="highlight">risk level</span> ranging from conservative to aggressive,
+            helping us balance the trade-off between <span class="highlight">capital preservation</span> and
+            <span class="highlight">growth potential</span> in a disciplined and transparent way.
+        </div>
+        <div class="section-text">
+            ESG factors are integrated directly into the portfolio construction process. Each equity is assigned
+            an ESG score, and these scores are grouped into Low (L), Medium (M), and High (H) categories. Clients can
+            request to exclude certain buckets — for instance, avoiding L-rated names — or they can set specific
+            minimum and maximum allocation levels for each ESG category. These constraints are treated as strict
+            portfolio rules within our optimizer to ensure that sustainability preferences are respected at all times.
+        </div>
     </div>
-</div>
-''', unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-# Section 3: Costs and Fees in the Backtest
-st.markdown('<div class="section-title">3. Costs and Fees in the Backtest</div>', unsafe_allow_html=True)
-st.markdown('''
-<div class="section-container">
-    <div class="section-text">
-        To ensure realism in our portfolio simulations, we incorporate explicit <span class="highlight">transaction costs</span> and fees. We assume a proportional cost of 0.1% applied at each rebalancing. We also calculate the <span class="highlight">turnover</span> of the portfolio, which measures how much the asset allocation changes over time. These costs are then deducted from total portfolio wealth before performance statistics are computed.
+# Section 3
+st.markdown(
+    """
+    <div class="section">
+        <h2><span class="section-number">3.</span> Costs and Fees in the Backtest</h2>
+        <div class="section-text">
+            We incorporate realistic transaction costs to provide a fair assessment of net performance.
+            At each rebalance, we apply a <span class="highlight">proportional cost of 0.1%</span> to all trades.
+            This cost is deducted from portfolio wealth and helps ensure the backtest reflects realistic
+            implementation conditions. We also track turnover, which measures how much the portfolio changes
+            from period to period — helping us monitor cost-efficiency.
+        </div>
     </div>
-</div>
-''', unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-# Section 4: Constraints and Allocation Rules
-st.markdown('<div class="section-title">4. Constraints and Allocation Rules</div>', unsafe_allow_html=True)
-st.markdown('''
-<div class="section-container">
-    <div class="section-text">
-        Our optimization process respects both <span class="highlight">hard</span> and <span class="highlight">soft constraints</span> that define how capital can be allocated across assets. Hard constraints include limits on asset class weights, ESG bucket exposures, and minimum diversification requirements. Soft constraints reflect client preferences, such as favoring certain sectors or excluding others, and are penalized in the optimization objective rather than strictly enforced.
+# Section 4
+st.markdown(
+    """
+    <div class="section">
+        <h2><span class="section-number">4.</span> Portfolio Constraints</h2>
+        <div class="section-text">
+            To ensure robust and realistic allocations, we impose several constraints on the optimization process.
+            These include <span class="highlight">minimum and maximum weights</span> per asset, <span class="highlight">sector caps</span>,
+            and ESG-driven rules. All constraints reflect client input and market best practices — ensuring that
+            our portfolios remain diversified, aligned with values, and implementable in real markets.
+        </div>
     </div>
-</div>
-''', unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-# Section 5: Rebalancing and Ongoing Monitoring
-st.markdown('<div class="section-title">5. Rebalancing and Ongoing Monitoring</div>', unsafe_allow_html=True)
-st.markdown('''
-<div class="section-container">
-    <div class="section-text">
-        We review and rebalance client portfolios on a <span class="highlight">monthly</span> basis. This ensures that any deviations from the original allocation — whether due to market movements or changing client inputs — are systematically corrected. The rebalancing mechanism is designed to be <span class="highlight">efficient</span>, <span class="highlight">cost-aware</span>, and fully aligned with the client’s long-term investment objectives.
+# Section 5
+st.markdown(
+    """
+    <div class="section">
+        <h2><span class="section-number">5.</span> Rebalancing Process</h2>
+        <div class="section-text">
+            We review and rebalance client portfolios on a monthly basis. This ensures that any deviations
+            from the original allocation — whether due to market movements or changing client inputs — are
+            systematically corrected. The rebalancing mechanism is designed to be efficient, cost-aware,
+            and fully aligned with the client's long-term investment objectives.
+        </div>
     </div>
-</div>
-''', unsafe_allow_html=True) 
+    """,
+    unsafe_allow_html=True
+)
+
 
 
 
