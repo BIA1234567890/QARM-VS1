@@ -1789,7 +1789,42 @@ def page_ai_assistant():
                 font-weight: 700;
                 margin: 0;
             }
+
+            .card-container {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-top: 30px;
+                gap: 20px;
+            }
+
+            .card {
+                background: #f8fbfd;
+                border: 1px solid #2a628f;
+                border-left: 6px solid #1d4e6e;
+                border-radius: 12px;
+                box-shadow: 0 4px 18px rgba(19, 60, 85, 0.06);
+                padding: 22px;
+                flex: 1 1 30%;
+                min-width: 280px;
+                max-width: 32%;
+                box-sizing: border-box;
+            }
+
+            .card h4 {
+                margin-top: 0;
+                color: #133c55;
+                font-weight: 600;
+                font-size: 17px;
+            }
+
+            .card p {
+                font-size: 15px;
+                color: #133c55;
+                line-height: 1.55;
+            }
         </style>
+
         <div class="hero">
             <h1 class="hero-title">Phi Assistant</h1>
         </div>
@@ -1799,7 +1834,7 @@ def page_ai_assistant():
 
     st.markdown(
         """
-        <div style="font-size:17px; margin-bottom: 40px">
+        <div style="font-size:17px; margin-bottom: 40px; color: #133c55">
         Our AI-powered assistant is designed to enhance your experience on our portfolio management platform. 
         It acts as your personal guide and educational partner across three key areas.
         </div>
@@ -1807,50 +1842,33 @@ def page_ai_assistant():
         unsafe_allow_html=True
     )
 
-    col1, col2, col3 = st.columns(3)
+    st.markdown(
+        """
+        <div class="card-container">
 
-    with col1:
-        st.markdown(
-            """
-            <div style="font-size:16px">
-            <strong>1. Platform Guidance & Functionality</strong><br><br>
-            Navigate the platform step by step — from choosing your investment universe to configuring constraints, 
-            interpreting backtests, and reviewing today's optimal portfolio. Whether you're clarifying a feature or 
-            navigating a complex function, Phi Assistant offers clear, client-friendly guidance.
+            <div class="card">
+                <h4>1. Platform Guidance & Functionality</h4>
+                <p>Navigate the platform step by step — from choosing your investment universe to configuring constraints, interpreting backtests, and reviewing today's optimal portfolio. Whether you're clarifying a feature or navigating a complex function, Phi Assistant offers clear, client-friendly guidance.</p>
             </div>
-            """,
-            unsafe_allow_html=True
-        )
 
-    with col2:
-        st.markdown(
-            """
-            <div style="font-size:16px">
-            <strong>2. Financial & Theoretical Concepts</strong><br><br>
-            Gain clarity on diversification, risk-return trade-offs, and portfolio theory. Phi Assistant explains 
-            the Markowitz optimization, risk aversion (gamma), and charts or metrics in simple, intuitive terms.
-            Grounded in quantitative finance, it's always educational — never advisory.
+            <div class="card">
+                <h4>2. Financial & Theoretical Concepts</h4>
+                <p>Gain clarity on diversification, risk-return trade-offs, and portfolio theory. Phi Assistant explains the Markowitz optimization, risk aversion (gamma), and charts or metrics in simple, intuitive terms. Grounded in quantitative finance, it's always educational — never advisory.</p>
             </div>
-            """,
-            unsafe_allow_html=True
-        )
 
-    with col3:
-        st.markdown(
-            """
-            <div style="font-size:16px">
-            <strong>3. Market Context & Current Themes</strong><br><br>
-            Stay informed on macroeconomic themes, asset-class developments, and market trends. 
-            Phi Assistant delivers neutral, high-level insights to help you understand the broader context 
-            in which portfolios operate.
+            <div class="card">
+                <h4>3. Market Context & Current Themes</h4>
+                <p>Stay informed on macroeconomic themes, asset-class developments, and market trends. Phi Assistant delivers neutral, high-level insights to help you understand the broader context in which portfolios operate.</p>
             </div>
-            """,
-            unsafe_allow_html=True
-        )
+
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     st.markdown(
         """
-        <div style="margin-top: 35px; font-size: 15px">
+        <div style="margin-top: 35px; font-size: 15px; color: #133c55">
         🚨 <strong>Important:</strong> Phi Assistant is purely educational. It does <strong>not</strong> provide personalized investment recommendations or trading advice.
         </div>
         """,
