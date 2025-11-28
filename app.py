@@ -1921,7 +1921,8 @@ def page_investment_approach():
             font-size: 44px;
             font-weight: 700;
             margin: 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .section-container {
@@ -1964,7 +1965,7 @@ def page_investment_approach():
     # HERO SECTION
     st.markdown("""
     <div class="hero">
-        <h1 class="hero-title">Investment Strategy</h1>
+        <h1 class="hero-title">Our investment approach</h1>
     </div>
     """, unsafe_allow_html=True)
 
