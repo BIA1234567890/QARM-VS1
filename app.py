@@ -2469,8 +2469,8 @@ def page_our_team():
         <div class="team-member">
             <img src="data:image/jpeg;base64,{malek_img}">
             <div class="member-name">Malek Trimeche</div>
-            <div class="member-role">Client Relations</div>
-            <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
+            <div class="member-role">Investor Relations Manager</div>
+            <div class="member-bio">Driving alignment between capital providers and investment performance.</div>
             <div class="linkedin"><a href="https://www.linkedin.com/in/malek-trimeche-4616b8352/" target="_blank">LinkedIn</a></div>
         </div>
     </div>
