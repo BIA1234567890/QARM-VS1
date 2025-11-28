@@ -2049,7 +2049,7 @@ def page_new_client():
                 line-height: 1.5;
             }
             .form-box {
-                background-color: #f9f9f9;
+                background-color: #f7f8fa;
                 border: 1px solid #ddd;
                 padding: 25px;
                 border-radius: 10px;
