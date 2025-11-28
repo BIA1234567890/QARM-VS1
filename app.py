@@ -1772,7 +1772,7 @@ def page_ai_assistant():
             }
 
             .hero-title {
-                color: #ffffff;
+                color: #ffffff !important;
                 font-size: 42px;
                 font-weight: 700;
                 margin: 0;
