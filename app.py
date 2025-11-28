@@ -2358,13 +2358,14 @@ def img_to_base64(path):
     img.save(buf, format="jpeg")   # IMPORTANT: JPEG here
     byte_im = buf.getvalue()
     return base64.b64encode(byte_im).decode()
+    
 def page_our_team():
 
-    # Load local JPG images
     petrit_img = img_to_base64("Petrit.jpg")
-    rean_img = img_to_base64("Rean.jpg")
+    rean_img = img_to_base64("Reann.jpg")
     illia_img = img_to_base64("illia.jpg")
 
+    # HERO CSS
     st.markdown(
         """
         <style>
@@ -2428,11 +2429,6 @@ def page_our_team():
                 margin-bottom: 6px;
             }
 
-            .linkedin {
-                font-size: 14px;
-                margin-top: 8px;
-            }
-
             .linkedin a {
                 text-decoration: none;
                 color: #0a66c2;
@@ -2447,13 +2443,9 @@ def page_our_team():
         unsafe_allow_html=True
     )
 
+    # TEAM HTML
     html = f"""
-<div class="team-grid">
-    ...
-</div>
-"""
-
-st.markdown(html, unsafe_allow_html=True)
+    <div class="team-grid">
 
         <div class="team-member">
             <img src="data:image/jpeg;base64,{petrit_img}">
