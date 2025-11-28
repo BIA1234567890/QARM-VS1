@@ -104,6 +104,7 @@ def page_about():
                 color: #d9dde7;
                 font-size: 18px;
                 max-width: 520px;
+                white-space: nowrap;
             }
 
             /* SECTION TYPOGRAPHY */
