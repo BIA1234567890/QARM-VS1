@@ -2032,45 +2032,38 @@ def page_new_client():
 
     st.markdown("""
         <style>
-        .form-section {
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #0e0e0e, #1e1e1e);
-            color: white;
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            text-align: left;
-        }
-        .hero-section h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .hero-section p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
+            .hero {
+                background: linear-gradient(135deg, #101010 0%, #202020 100%);
+                padding: 40px;
+                border-radius: 12px;
+                margin-bottom: 30px;
+                color: white;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            }
+            .hero h1 {
+                font-size: 36px;
+                margin-bottom: 12px;
+            }
+            .hero p {
+                font-size: 18px;
+                line-height: 1.5;
+            }
+            .form-box {
+                background-color: #f9f9f9;
+                border: 1px solid #ddd;
+                padding: 25px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+            }
         </style>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-        <div class="hero-section">
+        <div class="hero">
             <h1>Become a Client</h1>
-            <p>
-                Welcome to our client application portal. To begin your onboarding process, please complete the form below.<br>
-                The information you provide will help us understand your investment profile, objectives, and preferences,<br>
-                so we can evaluate your request and determine the most suitable portfolio approach.
-            </p>
+            <p>Welcome to our Client Application Portal. To begin your onboarding process, please complete the form below. The information you provide will help us understand your investment profile, objectives, and preferences so we can evaluate your request and determine the most suitable portfolio approach. Once submitted, you will receive a confirmation email summarizing your details.</p>
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<div class='form-section'>", unsafe_allow_html=True)
+    # ------------------------ 1) GENERAL INFO ------------------------
+    st.markdown("<div class='form-box'>", unsafe_allow_html=True)
     st.subheader("1. General Information")
     full_name = st.text_input("Full Name", key="client_full_name")
     email = st.text_input("Email Address", key="client_email")
@@ -2078,35 +2071,9 @@ def page_new_client():
     over_18 = st.checkbox("I confirm that I am at least 18 years old", key="client_over_18")
     st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("<div class='form-section'>", unsafe_allow_html=True)
+    # ------------------------ 2) INVESTMENT PREF ------------------------
+    st.markdown("<div class='form-box'>", unsafe_allow_html=True)
     st.subheader("2. Investment Preferences")
-    # ...rest of your investment preference logic here
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    st.markdown("<div class='form-section'>", unsafe_allow_html=True)
-    st.subheader("3. Submit Application")
-    # ...submit logic remains unchanged...
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # Keep the remaining logic/code as-is
-
-
-    # ------------------------------------------------------------------
-    # 1) GENERAL INFORMATION
-    # ------------------------------------------------------------------
-    st.subheader("General Information")
-
-    full_name = st.text_input("Full Name", key="client_full_name")
-    email = st.text_input("Email Address", key="client_email")
-    phone = st.text_input("Phone Number (optional)", key="client_phone")
-    over_18 = st.checkbox("I confirm that I am at least 18 years old", key="client_over_18")
-
-    st.markdown("---")
-
-    # ------------------------------------------------------------------
-    # 2) INVESTMENT PREFERENCES
-    # ------------------------------------------------------------------
-    st.subheader("Investment Preferences")
 
     backtest_config = st.session_state.get("backtest_results", None)
     has_opt_config = isinstance(backtest_config, dict)
@@ -2117,7 +2084,6 @@ def page_new_client():
     if has_opt_config:
         try:
             r = backtest_config
-
             universe_choice_label = "S&P 500" if r.get("universe_choice") == "SP500" else "MSCI World"
             rebal_map = {12: "Yearly", 3: "Quarterly", 1: "Monthly"}
             rebal_label = rebal_map.get(r.get("rebalancing"), "Custom")
@@ -2154,84 +2120,31 @@ def page_new_client():
                 "Specify my preferences here",
             ],
             index=0,
-            help=(
-                "If you have already configured and run a portfolio optimization, you can reuse "
-                "those settings as your investment preferences. Otherwise, specify them below."
-            ),
         )
     else:
-        st.info(
-            "No previous portfolio optimization settings were found in this session, "
-            "or they are not available. Please specify your investment preferences below."
-        )
+        st.info("No previous portfolio optimization settings were found. Please specify your preferences.")
         pref_source = "Specify my preferences here"
 
     manual_prefs = {}
 
     if pref_source == "Specify my preferences here":
-        st.markdown("Please give us a high-level view of how you would like to invest.")
-
         col1, col2 = st.columns(2)
         with col1:
-            manual_prefs["universe_choice"] = st.radio(
-                "Preferred equity universe",
-                options=["S&P 500", "MSCI World"],
-                index=0,
-            )
-            manual_prefs["horizon"] = st.selectbox(
-                "Investment horizon",
-                options=["1–3 years", "3–5 years", "5–7 years", "7+ years"],
-                index=1,
-            )
+            manual_prefs["universe_choice"] = st.radio("Preferred equity universe", ["S&P 500", "MSCI World"], index=0)
+            manual_prefs["horizon"] = st.selectbox("Investment horizon", ["1–3 years", "3–5 years", "5–7 years", "7+ years"], index=1)
         with col2:
-            manual_prefs["risk_profile"] = st.selectbox(
-                "Risk profile",
-                options=[
-                    "Very Conservative",
-                    "Conservative",
-                    "Balanced",
-                    "Dynamic",
-                    "Aggressive",
-                ],
-                index=2,
-            )
-            manual_prefs["multi_asset"] = st.selectbox(
-                "Preferred portfolio type",
-                options=[
-                    "Equity-focused",
-                    "Multi-asset (Equity, Fixed Income, Commodities, Alternatives)",
-                ],
-                index=1,
-            )
+            manual_prefs["risk_profile"] = st.selectbox("Risk profile", ["Very Conservative", "Conservative", "Balanced", "Dynamic", "Aggressive"], index=2)
+            manual_prefs["multi_asset"] = st.selectbox("Preferred portfolio type", ["Equity-focused", "Multi-asset"], index=1)
 
-        manual_prefs["investment_amount"] = st.number_input(
-            "Planned investment amount",
-            min_value=1_000_000.0,
-            value=1_000_000.0,
-            step=100_000.0,
-            help="Approximate amount you are considering investing."
-        )
-
-        manual_prefs["notes"] = st.text_area(
-            "Additional comments or preferences (optional)",
-            placeholder=(
-                "Example: I prefer a diversified portfolio with limited drawdowns, "
-                "I am interested in sustainable investing, I'd like to have at least 50% in equity, etc."
-            ),
-        )
-
+        manual_prefs["investment_amount"] = st.number_input("Planned investment amount", min_value=1_000_000.0, value=1_000_000.0, step=100_000.0)
+        manual_prefs["notes"] = st.text_area("Additional comments (optional)", placeholder="e.g. Sustainable investing, low volatility preference...")
     else:
-        st.markdown(
-            "You chose to **reuse your latest Portfolio Optimization settings**. "
-            "Below is a summary of the preferences that will be used in your application:"
-        )
+        st.markdown("You chose to **reuse your latest Portfolio Optimization settings**. Below is a summary:")
         st.markdown(opt_summary_text)
 
-    st.markdown("---")
+    st.markdown("</div>", unsafe_allow_html=True)
 
-    # ------------------------------------------------------------------
-    # 3) SUBMIT APPLICATION & SEND EMAIL
-    # ------------------------------------------------------------------
+    # ------------------------ 3) SUBMIT ------------------------
     submit = st.button("Submit Application", type="primary")
 
     if submit:
@@ -2245,8 +2158,7 @@ def page_new_client():
         greeting = f"Dear {full_name},\n\n"
         intro = (
             "Thank you for your request to become a client of Phi Investment Capital.\n"
-            "We are pleased to receive your application and appreciate your interest in our "
-            "quantitative asset and risk management approach.\n\n"
+            "We are pleased to receive your application and appreciate your interest in our quantitative approach.\n\n"
         )
 
         general_info_block = "Your general information:\n"
@@ -2255,11 +2167,10 @@ def page_new_client():
         if phone:
             general_info_block += f"- Phone: {phone}\n"
 
-        # Preferences block
         if pref_source == "Specify my preferences here":
-            prefs_block = "Your investment preferences (as specified in the form):\n"
+            prefs_block = "Your investment preferences:\n"
             prefs_block += f"- Planned investment amount: {manual_prefs['investment_amount']:,.0f}\n"
-            prefs_block += f"- Preferred equity universe: {manual_prefs['universe_choice']}\n"
+            prefs_block += f"- Equity universe: {manual_prefs['universe_choice']}\n"
             prefs_block += f"- Investment horizon: {manual_prefs['horizon']}\n"
             prefs_block += f"- Risk profile: {manual_prefs['risk_profile']}\n"
             prefs_block += f"- Portfolio type: {manual_prefs['multi_asset']}\n"
@@ -2268,35 +2179,13 @@ def page_new_client():
             prefs_block += "\n"
             constraints_block = ""
         else:
-            r = backtest_config
-            universe_choice_label = "S&P 500" if r.get("universe_choice") == "SP500" else "MSCI World"
-            rebal_map = {12: "Yearly", 3: "Quarterly", 1: "Monthly"}
-            rebal_label = rebal_map.get(r.get("rebalancing"), "Custom")
-            selected_ac = r.get("selected_asset_classes_other") or []
-            ac_str = ", ".join(selected_ac) if selected_ac else "Equity only"
-            est_months = r.get("est_months", 12)
-            max_w = r.get("max_weight_per_asset", 0.05)
-            max_to = r.get("max_turnover_per_rebalance", None)
-
-            prefs_block = "Your investment preferences (based on your latest portfolio optimization settings):\n\n"
-            prefs_block += f"- Planned investment amount: {r.get('investment_amount'):,.0f}\n"
-            prefs_block += f"- Equity universe: {universe_choice_label}\n"
-            prefs_block += f"- Investment horizon: {r.get('investment_horizon_years')} years\n"
-            prefs_block += f"- Rebalancing frequency: {rebal_label}\n"
-            prefs_block += f"- Estimation window: {est_months} months\n"
-            prefs_block += f"- Risk profile: {r.get('profile_label')}\n"
-            prefs_block += f"- Max weight per asset: {max_w:.0%}\n"
-            prefs_block += f"- Turnover constraint: {'No explicit turnover limit' if max_to is None else f'Max {max_to:.0%} one-way turnover per rebalance'}\n"
-            prefs_block += f"- Additional asset classes: {ac_str}\n\n"
-
-            constraints_block = format_constraints_block(r)
+            prefs_block = opt_summary_text
+            constraints_block = format_constraints_block(backtest_config)
 
         closing = (
-            "We will review your information and contact you in the near future to discuss the next steps.\n"
-            "This email is an acknowledgement of your request and does not constitute investment advice "
-            "or an offer to purchase or sell any financial instrument.\n\n"
-            "Best regards,\n"
-            "Phi Investment Capital\n"
+            "We will review your information and contact you in the near future.\n"
+            "This email is an acknowledgement of your request and does not constitute investment advice.\n\n"
+            "Best regards,\nPhi Investment Capital"
         )
 
         full_email_text = greeting + intro + general_info_block + prefs_block
@@ -2307,9 +2196,7 @@ def page_new_client():
         configuration = sib_api_v3_sdk.Configuration()
         configuration.api_key['api-key'] = BREVO_API_KEY
 
-        api_instance = sib_api_v3_sdk.TransactionalEmailsApi(
-            sib_api_v3_sdk.ApiClient(configuration)
-        )
+        api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
 
         email_content = sib_api_v3_sdk.SendSmtpEmail(
             sender={"name": SENDER_NAME, "email": SENDER_EMAIL},
