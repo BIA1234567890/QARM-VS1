@@ -336,7 +336,36 @@ def page_about():
 
 # --------------- PAGE 2: PORTFOLIO OPTIMIZATION ---------------
 def page_portfolio_optimization(data):
-    st.title("Portfolio Optimization")
+    st.markdown(
+        """
+        <style>
+            .hero-opt {
+                background: linear-gradient(120deg, #133c55 0%, #1d4e6e 55%, #2a628f 100%);
+                height: 170px;
+                border-radius: 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 32px 46px;
+                margin-bottom: 40px;
+                box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+            }
+
+            .hero-title-opt {
+                color: #ffffff;
+                font-size: 36px;
+                font-weight: 700;
+                margin: 0;
+                font-family: 'Open Sans', sans-serif;
+            }
+        </style>
+
+        <div class="hero-opt">
+            <h1 class="hero-title-opt">Portfolio Optimization</h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     st.markdown(
         """
