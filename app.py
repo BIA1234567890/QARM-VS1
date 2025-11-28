@@ -2348,11 +2348,24 @@ def page_new_client():
         except ApiException as e:
             st.error(f"Email sending failed: {e}")
 
+import base64
+import streamlit as st
+
+def load_image_base64(path):
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
 def page_our_team():
+
+    # Load images
+    img_reann = load_image_base64("Reann.jpg")
+    img_petrit = load_image_base64("Petrit.jpg")
+    img_illia = load_image_base64("illia.jpg")
+
     st.markdown(
-        """
+        f"""
         <style>
-            .hero-team {
+            .hero-team {{
                 background: linear-gradient(120deg, #133c55 0%, #1d4e6e 55%, #2a628f 100%);
                 height: 180px;
                 border-radius: 16px;
@@ -2362,111 +2375,90 @@ def page_our_team():
                 padding: 32px 46px;
                 margin-bottom: 40px;
                 box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
-            }
-
-            .hero-team-title {
+            }}
+            .hero-team-title {{
                 color: white;
                 font-size: 38px;
                 font-weight: 700;
                 margin: 0;
                 font-family: 'Open Sans', sans-serif;
-            }
-
-            .team-grid {
+            }}
+            .team-grid {{
                 display: flex;
                 flex-wrap: wrap;
                 gap: 40px;
                 justify-content: space-around;
                 margin-top: 40px;
-            }
-
-            .team-member {
+            }}
+            .team-member {{
                 width: 260px;
                 text-align: center;
-            }
-
-            .team-member img {
+            }}
+            .team-member img {{
                 width: 180px;
                 height: 180px;
                 object-fit: cover;
                 border-radius: 100px;
                 margin-bottom: 14px;
                 box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-            }
-
-            .member-name {
+            }}
+            .member-name {{
                 font-size: 18px;
                 font-weight: 600;
                 margin-bottom: 4px;
-            }
-
-            .member-role {
+            }}
+            .member-role {{
                 font-size: 14px;
                 color: #555;
                 margin-bottom: 10px;
-            }
-
-            .member-bio {
+            }}
+            .member-bio {{
                 font-size: 14px;
                 color: #444;
                 margin-bottom: 6px;
-            }
-
-            .linkedin {
-                font-size: 14px;
-                margin-top: 8px;
-            }
-
-            .linkedin a {
+            }}
+            .linkedin a {{
                 text-decoration: none;
                 color: #0a66c2;
                 font-weight: 500;
-            }
+            }}
         </style>
 
         <div class="hero-team">
             <div class="hero-team-title">Meet the Team</div>
         </div>
-        """,
-        unsafe_allow_html=True
-    )
 
-    # Example team layout
-    st.markdown(
-        """
         <div class="team-grid">
+
             <div class="team-member">
-                <img src="https://i.imgur.com/ZF6s192.png" alt="Andre">
-                <div class="member-name">Andre Ferreira Goncalves</div>
-                <div class="member-role">Quant & Portfolio Strategy</div>
-                <div class="member-bio">Focused on risk analysis and optimization. Data-driven decision maker.</div>
-                <div class="linkedin"><a href="https://www.linkedin.com/in/example1" target="_blank">LinkedIn</a></div>
-            </div>
-            <div class="team-member">
-                <img src="Reann.jpg" alt="Beatriz">
+                <img src="data:image/jpeg;base64,{img_reann}">
                 <div class="member-name">Beatriz Silva Costa</div>
                 <div class="member-role">Client Relations</div>
                 <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
-                <div class="linkedin"><a href="https://www.linkedin.com/in/example2" target="_blank">LinkedIn</a></div>
+                <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
             </div>
+
             <div class="team-member">
-                <img src="Petrit.jpg" alt="Matheo">
+                <img src="data:image/jpeg;base64,{img_petrit}">
                 <div class="member-name">Matheo Good</div>
                 <div class="member-role">Quantitative Research</div>
                 <div class="member-bio">Specializes in modeling, stats and robust optimization logic.</div>
-                <div class="linkedin"><a href="https://www.linkedin.com/in/example3" target="_blank">LinkedIn</a></div>
+                <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
             </div>
-             <div class="team-member">
-                <img src="illia.jpg" alt="Beatriz">
+
+            <div class="team-member">
+                <img src="data:image/jpeg;base64,{img_illia}">
                 <div class="member-name">Beatriz Silva Costa</div>
                 <div class="member-role">Client Relations</div>
                 <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
-                <div class="linkedin"><a href="https://www.linkedin.com/in/example2" target="_blank">LinkedIn</a></div>
+                <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
             </div>
+
         </div>
         """,
         unsafe_allow_html=True
     )
+
 
 
 
