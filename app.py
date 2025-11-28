@@ -2362,7 +2362,7 @@ def img_to_base64(path):
 def page_our_team():
 
     petrit_img = img_to_base64("Petrit.jpg")
-    rean_img = img_to_base64("Reann.jpg")
+    rean_img = img_to_base64("Rean.jpg")
     illia_img = img_to_base64("illia.jpg")
 
     # HERO CSS
