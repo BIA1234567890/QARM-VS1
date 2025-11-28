@@ -283,7 +283,7 @@ def page_about():
     col6, col7 = st.columns([1, 1.5])
     with col6:
         st.markdown('<div class="image-frame">', unsafe_allow_html=True)
-        st.image("team.png", use_column_width=True)
+        st.image("Team.png", use_column_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     with col7:
         st.markdown('<div class="section-heading"> Who We Serve</div>', unsafe_allow_html=True)
