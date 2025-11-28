@@ -2563,7 +2563,7 @@ def page_our_team():
             </div>
             <div class="team-member">
                 <img src="Reann.jpg" alt="Beatriz">
-                <div class="member-name">Illia Shapkin>
+                <div class="member-name">Illia Shapkin></div>
                 <div class="member-role">Client Relations</div>
                 <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
                 <div class="linkedin"><a href="https://www.linkedin.com/in/example2" target="_blank">LinkedIn</a></div>
