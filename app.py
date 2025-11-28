@@ -189,8 +189,7 @@ def page_about():
         <div class="hero">
             <div class="hero-title">Phi Investment Capital</div>
             <div class="hero-subtitle">
-                A quantitative portfolio design studio that turns institutional research
-                into clear, usable portfolios for sophisticated investors.
+                A quantitative portfolio design studio that turns institutional research into clear, usable portfolios for sophisticated investors.
             </div>
         </div>
         """,
