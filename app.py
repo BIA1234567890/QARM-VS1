@@ -2431,42 +2431,38 @@ def page_our_team():
         unsafe_allow_html=True
     )
 
+    # Example team layout
     st.markdown(
         """
         <div class="team-grid">
-
             <div class="team-member">
-                <img src="illia.jpg" alt="Illia">
-                <div class="member-name">Illia</div>
+                <img src="https://i.imgur.com/ZF6s192.png" alt="Andre">
+                <div class="member-name">Andre Ferreira Goncalves</div>
                 <div class="member-role">Quant & Portfolio Strategy</div>
                 <div class="member-bio">Focused on risk analysis and optimization. Data-driven decision maker.</div>
                 <div class="linkedin"><a href="https://www.linkedin.com/in/example1" target="_blank">LinkedIn</a></div>
             </div>
-
             <div class="team-member">
-                <img src="Rean.jpg" alt="Rean">
-                <div class="member-name">Rean</div>
+                <img src="Reann.jpg" alt="Beatriz">
+                <div class="member-name">Beatriz Silva Costa</div>
                 <div class="member-role">Client Relations</div>
                 <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
                 <div class="linkedin"><a href="https://www.linkedin.com/in/example2" target="_blank">LinkedIn</a></div>
             </div>
-
             <div class="team-member">
-                <img src="Petrit.jpg" alt="Petrit">
-                <div class="member-name">Petrit</div>
+                <img src="Petrit.jpg" alt="Matheo">
+                <div class="member-name">Matheo Good</div>
                 <div class="member-role">Quantitative Research</div>
                 <div class="member-bio">Specializes in modeling, stats and robust optimization logic.</div>
                 <div class="linkedin"><a href="https://www.linkedin.com/in/example3" target="_blank">LinkedIn</a></div>
             </div>
-
-            <div class="team-member">
-                <img src="Rean.jpg" alt="Rean">
-                <div class="member-name">Rean</div>
+             <div class="team-member">
+                <img src="illia.jpg" alt="Beatriz">
+                <div class="member-name">Beatriz Silva Costa</div>
                 <div class="member-role">Client Relations</div>
                 <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
                 <div class="linkedin"><a href="https://www.linkedin.com/in/example2" target="_blank">LinkedIn</a></div>
             </div>
-
         </div>
         """,
         unsafe_allow_html=True
