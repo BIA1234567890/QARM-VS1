@@ -2030,17 +2030,66 @@ def page_new_client():
     SENDER_EMAIL = st.secrets["brevo"]["sender_email"]
     SENDER_NAME = st.secrets["brevo"]["sender_name"]
 
-    st.title("Become a Client")
+    st.markdown("""
+        <style>
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0e0e0e, #1e1e1e);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .hero-section h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .hero-section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
     st.markdown("""
-    ### Welcome to our Client Application Portal
+        <div class="hero-section">
+            <h1>Become a Client</h1>
+            <p>
+                Welcome to our client application portal. To begin your onboarding process, please complete the form below.<br>
+                The information you provide will help us understand your investment profile, objectives, and preferences,<br>
+                so we can evaluate your request and determine the most suitable portfolio approach.
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
 
-    To begin your onboarding process, please complete the form below.  
-    The information you provide will help us understand your investment profile, objectives, 
-    and preferences so we can evaluate your request and determine the most suitable portfolio approach.
+    st.markdown("<div class='form-section'>", unsafe_allow_html=True)
+    st.subheader("1. General Information")
+    full_name = st.text_input("Full Name", key="client_full_name")
+    email = st.text_input("Email Address", key="client_email")
+    phone = st.text_input("Phone Number (optional)", key="client_phone")
+    over_18 = st.checkbox("I confirm that I am at least 18 years old", key="client_over_18")
+    st.markdown("</div>", unsafe_allow_html=True)
 
-    Once submitted, you will receive a confirmation email summarizing your details.
-    """)
+    st.markdown("<div class='form-section'>", unsafe_allow_html=True)
+    st.subheader("2. Investment Preferences")
+    # ...rest of your investment preference logic here
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    st.markdown("<div class='form-section'>", unsafe_allow_html=True)
+    st.subheader("3. Submit Application")
+    # ...submit logic remains unchanged...
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    # Keep the remaining logic/code as-is
+
 
     # ------------------------------------------------------------------
     # 1) GENERAL INFORMATION
