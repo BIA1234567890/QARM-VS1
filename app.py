@@ -209,7 +209,7 @@ def page_about():
 
     col1, col2 = st.columns([1.5, 1])
     with col1:
-        st.markdown('<div id="who" class="section-heading">💼 Who We Are</div>', unsafe_allow_html=True)
+        st.markdown('<div id="who" class="section-heading"> Who We Are</div>', unsafe_allow_html=True)
         st.markdown(
             """
             <div class="paragraph">
@@ -240,7 +240,7 @@ def page_about():
 
     col4 = st.columns([1])[0]
     with col4:
-        st.markdown('<div id="what" class="section-heading">🛠️ What We Do</div>', unsafe_allow_html=True)
+        st.markdown('<div id="what" class="section-heading"> What We Do</div>', unsafe_allow_html=True)
         st.markdown(
             """
             <div class="paragraph">
@@ -261,7 +261,7 @@ def page_about():
 
     st.markdown('<hr />', unsafe_allow_html=True)
 
-    st.markdown('<div id="why" class="section-heading">✨ Why Phi</div>', unsafe_allow_html=True)
+    st.markdown('<div id="why" class="section-heading"> Why Phi</div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="paragraph">
@@ -280,7 +280,7 @@ def page_about():
 
     st.markdown('<hr />', unsafe_allow_html=True)
 
-    st.markdown('<div class="section-heading">🌍 Who We Serve</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-heading"> Who We Serve</div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="paragraph">
@@ -314,7 +314,7 @@ def page_about():
 
     st.markdown('<hr />', unsafe_allow_html=True)
 
-    st.markdown('<div id="contact" class="section-heading">📬 Contact Us</div>', unsafe_allow_html=True)
+    st.markdown('<div id="contact" class="section-heading"> Contact Us</div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="contact-box">
