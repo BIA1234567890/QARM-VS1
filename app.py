@@ -2456,6 +2456,13 @@ def page_our_team():
                 <div class="member-bio">Specializes in modeling, stats and robust optimization logic.</div>
                 <div class="linkedin"><a href="https://www.linkedin.com/in/example3" target="_blank">LinkedIn</a></div>
             </div>
+             <div class="team-member">
+                <img src="https://i.imgur.com/CWnGH5q.png" alt="Beatriz">
+                <div class="member-name">Beatriz Silva Costa</div>
+                <div class="member-role">Client Relations</div>
+                <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
+                <div class="linkedin"><a href="https://www.linkedin.com/in/example2" target="_blank">LinkedIn</a></div>
+            </div>
         </div>
         """,
         unsafe_allow_html=True
