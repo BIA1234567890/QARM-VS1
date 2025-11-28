@@ -367,7 +367,8 @@ def page_portfolio_optimization(data):
         unsafe_allow_html=True
     )
 
-        st.markdown(
+    # <-- FIX: This must be aligned with the previous st.markdown
+    st.markdown(
         """
         <style>
             .opt-text {
