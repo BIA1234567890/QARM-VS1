@@ -2362,7 +2362,7 @@ def page_our_team():
 
     # Load local JPG images
     petrit_img = img_to_base64("Petrit.jpg")
-    rean_img = img_to_base64("Reann.jpg")
+    rean_img = img_to_base64("Rean.jpg")
     illia_img = img_to_base64("illia.jpg")
 
     st.markdown(
