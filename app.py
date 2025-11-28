@@ -352,7 +352,7 @@ def page_portfolio_optimization(data):
             }
 
             .hero-title-opt {
-                color: #ffffff;
+                color: #ffffff !important;
                 font-size: 36px;
                 font-weight: 700;
                 margin: 0;
