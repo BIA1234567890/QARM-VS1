@@ -2450,7 +2450,7 @@ def page_our_team():
             <div class="member-name">Petrit Gashi</div>
             <div class="member-role">Client Relations</div>
             <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
-            <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
+            <div class="linkedin"><a href="https://www.linkedin.com/in/petrit-gashi-8433a9289/?originalSubdomain=ch" target="_blank">LinkedIn</a></div>
         </div>
         <div class="team-member">
             <img src="data:image/jpeg;base64,{rean_img}">
