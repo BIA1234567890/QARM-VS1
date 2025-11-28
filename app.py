@@ -2448,7 +2448,12 @@ def page_our_team():
     )
 
     html = f"""
-    <div class="team-grid">
+<div class="team-grid">
+    ...
+</div>
+"""
+
+st.markdown(html, unsafe_allow_html=True)
 
         <div class="team-member">
             <img src="data:image/jpeg;base64,{petrit_img}">
