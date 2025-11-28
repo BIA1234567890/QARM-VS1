@@ -80,7 +80,7 @@ def page_about():
 
             /* HERO */
             .hero {
-                background: linear-gradient(120deg, #151515 0%, #262626 55%, #303640 100%);
+                background: linear-gradient(120deg, #133c55 0%, #1d4e6e 55%, #2a628f 100%);
                 height: 230px;
                 border-radius: 16px;
                 display: flex;
@@ -2053,12 +2053,15 @@ def page_new_client():
     st.markdown("""
         <style>
             .hero {
-                background: linear-gradient(135deg, #101010 0%, #202020 100%);
-                padding: 40px;
-                border-radius: 12px;
-                margin-bottom: 30px;
-                color: white;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                background: linear-gradient(120deg, #133c55 0%, #1d4e6e 55%, #2a628f 100%);
+                height: 230px;
+                border-radius: 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 32px 46px;
+                margin-bottom: 50px;
+                box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
             }
             .hero h1 {
                 font-size: 36px;
