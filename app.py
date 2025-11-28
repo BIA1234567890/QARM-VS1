@@ -1749,150 +1749,133 @@ def page_portfolio_optimization(data):
                     )
 
 
-# --------------- PAGE 3: AI Assistant ---------------
 def page_ai_assistant():
-    st.title("Phi Assistant ")
+    st.markdown(
+        """
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+            html, body, [class*="css"] {
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            .hero {
+                background: linear-gradient(120deg, #133c55 0%, #1d4e6e 55%, #2a628f 100%);
+                height: 230px;
+                border-radius: 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 32px 46px;
+                margin-bottom: 50px;
+                box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+            }
+
+            .hero-title {
+                color: #ffffff;
+                font-size: 42px;
+                font-weight: 700;
+                margin: 0;
+            }
+        </style>
+        <div class="hero">
+            <h1 class="hero-title">Phi Assistant</h1>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     st.markdown(
         """
+        <div style="font-size:17px; margin-bottom: 40px">
         Our AI-powered assistant is designed to enhance your experience on our portfolio management platform. 
-        It can support you across three key areas.
-        """
+        It acts as your personal guide and educational partner across three key areas.
+        </div>
+        """,
+        unsafe_allow_html=True
     )
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.subheader("1. Platform Guidance & Functionality")
         st.markdown(
             """
-            **Navigate the application with confidence:**
-
-            The assistant can explain each section of the site — 
-            from selecting your investment universe to configuring 
-            constraints, interpreting backtests, and reviewing today’s 
-            optimal portfolio. Whether you're unsure about a step or want to
-            understand how a specific feature works, it provides clear, client-friendly guidance.
-            """
+            <div style="font-size:16px">
+            <strong>1. Platform Guidance & Functionality</strong><br><br>
+            Navigate the platform step by step — from choosing your investment universe to configuring constraints, 
+            interpreting backtests, and reviewing today's optimal portfolio. Whether you're clarifying a feature or 
+            navigating a complex function, Phi Assistant offers clear, client-friendly guidance.
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
     with col2:
-        st.subheader("2. Financial & Theoretical Concepts")
         st.markdown(
             """
-            **Understand the rationale behind your portfolio:**
-
-            Ask about diversification, risk/return trade-offs, gamma (risk aversion), the Markowitz optimization 
-            framework, or the meaning of any chart or metric shown in the application. The assistant provides clear 
-            explanations grounded in quantitative finance — always educational, never advisory.
-            """
+            <div style="font-size:16px">
+            <strong>2. Financial & Theoretical Concepts</strong><br><br>
+            Gain clarity on diversification, risk-return trade-offs, and portfolio theory. Phi Assistant explains 
+            the Markowitz optimization, risk aversion (gamma), and charts or metrics in simple, intuitive terms.
+            Grounded in quantitative finance, it's always educational — never advisory.
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
     with col3:
-        st.subheader("3. Market Context & Current Themes")
         st.markdown(
             """
-            **Stay informed about what’s happening in the financial world:**
-
-            You can request neutral, factual insights about current market conditions, macroeconomic themes, 
-            or asset-class developments. The assistant offers high-level context to help you make sense of the 
-            broader environment in which portfolios operate.  
-            """
+            <div style="font-size:16px">
+            <strong>3. Market Context & Current Themes</strong><br><br>
+            Stay informed on macroeconomic themes, asset-class developments, and market trends. 
+            Phi Assistant delivers neutral, high-level insights to help you understand the broader context 
+            in which portfolios operate.
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
     st.markdown(
         """
-        ⚠️ **Important:** The assistant provides general information and educational insights only.
-        It does **not** offer personalized investment recommendations or specific trading advice.
-        """
+        <div style="margin-top: 35px; font-size: 15px">
+        🚨 <strong>Important:</strong> Phi Assistant is purely educational. It does <strong>not</strong> provide personalized investment recommendations or trading advice.
+        </div>
+        """,
+        unsafe_allow_html=True
     )
 
     client = get_llm_client()
 
-
-    # Initialize chat history in session_state
     if "ai_messages" not in st.session_state:
         st.session_state.ai_messages = [
             {
                 "role": "system",
-                "content": (
-                    "You are a digital investment assistant for an asset and risk management firm named "
-                    "Phi Investment Capital. You are integrated into a web application. Your name is Phi Assiatant\n\n"
-                    "Your primary role is to support clients in understanding:\n"
-                    "- How the app works (its pages, steps, and main functionalities)\n"
-                    "- The meaning of inputs (risk questionnaire, constraints, filters, universe choices)\n"
-                    "- The outputs of the optimizer (performance charts, drawdowns, asset-class/sector/ESG breakdowns)\n"
-                    "- General investment concepts related to diversification, risk/return, and portfolio construction\n"
-                    "- High-level, factual information about financial markets and asset classes\n\n"
-                    "Context about the app's functionality:\n"
-                    "- The app has an 'About us' page describing Phi Investment Capital and its quantitative approach.\n"
-                    "- The 'Portfolio optimization' page guides the client through:\n"
-                    "  1) General settings: equity universe (S&P 500 or MSCI World), investment amount, horizon,\n"
-                    "     rebalancing frequency, and estimation window.\n"
-                    "  2) Universe & filters: sector and ESG filters for equities, plus selection of other asset classes\n"
-                    "     (e.g. fixed income, commodities, alternatives) and instruments within them.\n"
-                    "  3) A risk profile questionnaire (10 questions) that produces a risk score and an internal\n"
-                    "     risk aversion parameter called gamma.\n"
-                    "  4) Constraints: maximum weight per asset, sector constraints, ESG constraints, and asset-class\n"
-                    "     constraints at the total portfolio level.\n"
-                    "  5) Optimization & backtest: a Markowitz mean–variance long-only optimization with constraints,\n"
-                    "     followed by a backtest showing cumulative returns, portfolio wealth, drawdowns, and summary statistics.\n"
-                    "- The app also shows today's optimal portfolio with:\n"
-                    "  - Top holdings\n"
-                    "  - Allocation by asset class\n"
-                    "  - Sector breakdown within equity\n"
-                    "  - ESG breakdown within equity\n\n"
-                    "How you should behave:\n"
-                    "- When clients ask about functionality, clearly explain which step of the process it relates to and\n"
-                    "  describe what the app does in that step (without assuming you see their exact numbers).\n"
-                    "- When clients ask about charts or metrics, explain conceptually what they represent (e.g. cumulative return,\n"
-                    "  max drawdown, annualised volatility, wealth evolution).\n"
-                    "- When clients ask about constraints or filters, explain how they influence diversification, risk concentration,\n"
-                    "  and the optimizer's feasible set.\n"
-                    "- When clients ask about financial markets, provide neutral, factual, and high-level explanations only.\n\n"
-                    "Compliance and limitations:\n"
-                    "- Do NOT provide personalized investment advice or recommendations.\n"
-                    "- Do NOT tell clients what they should buy, sell, or hold.\n"
-                    "- Do NOT give specific portfolio allocations, target returns, or forecasts for individual securities.\n"
-                    "- You may explain trade-offs (e.g. higher risk vs higher potential return) in general terms.\n"
-                    "- Keep a professional, calm, and client-oriented tone, as a relationship manager in a wealth management\n"
-                    "  or asset management firm would, but always focus on education and explanation rather than advice."
-                ),
+                "content": "...your previous system prompt content here..."
             }
         ]
 
-    # Show previous messages (except system)
     for msg in st.session_state.ai_messages:
         if msg["role"] == "system":
             continue
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
-    # Chat input
     user_input = st.chat_input("Ask a question")
     if user_input:
-        # 1) Add user message to history
         st.session_state.ai_messages.append({"role": "user", "content": user_input})
-
-        # 2) Display user bubble
         with st.chat_message("user"):
             st.markdown(user_input)
-
-        # 3) Call OpenAI
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 response = client.chat.completions.create(
                     model="llama-3.1-8b-instant",
                     messages=st.session_state.ai_messages,
                 )
-
                 reply = response.choices[0].message.content
                 st.markdown(reply)
+        st.session_state.ai_messages.append({"role": "assistant", "content": reply})
 
-        # 4) Save assistant reply in history
-        st.session_state.ai_messages.append(
-            {"role": "assistant", "content": reply}
-        )
 
 
 def page_investment_approach():
