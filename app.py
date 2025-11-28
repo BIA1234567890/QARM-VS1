@@ -2364,6 +2364,7 @@ def page_our_team():
     petrit_img = img_to_base64("Petrit.jpg")
     rean_img = img_to_base64("Rean.jpg")
     illia_img = img_to_base64("illia.jpg")
+    malek_img = img_to_base64("Malek.jpg")
 
     st.markdown(
         """
@@ -2466,7 +2467,7 @@ def page_our_team():
             <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
         </div>
         <div class="team-member">
-            <img src="data:image/jpeg;base64,{illia_img}">
+            <img src="data:image/jpeg;base64,{malek_img}">
             <div class="member-name">Malek Trimeche</div>
             <div class="member-role">Client Relations</div>
             <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
