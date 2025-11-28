@@ -2355,7 +2355,7 @@ import io
 def img_to_base64(path):
     img = Image.open(path)
     buf = io.BytesIO()
-    img.save(buf, format="JPG")   # IMPORTANT: JPEG here
+    img.save(buf, format="jpg")   # IMPORTANT: JPEG here
     byte_im = buf.getvalue()
     return base64.b64encode(byte_im).decode()
 def page_our_team():
