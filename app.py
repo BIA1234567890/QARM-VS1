@@ -2064,10 +2064,12 @@ def page_new_client():
                 box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
             }
             .hero h1 {
+                color: #ffffff !important;
                 font-size: 36px;
                 margin-bottom: 12px;
             }
             .hero p {
+                color: #ffffff !important;
                 font-size: 18px;
                 line-height: 1.5;
             }
