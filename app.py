@@ -2461,11 +2461,11 @@ def page_our_team():
             </a>
         </div>
 
-                <div class="team-member">
+        <div class="team-member">
             <img src="team_florian.jpg" alt="Malek">
             <div class="team-name">Malek Trimeche</div>
             <div class="team-role">Quant Research</div>
-            <div class="team-desc">Malek focuses on model validation, portfolio stress testing, and systematic strategies.</div>
+            <div class="team-desc">Malek focuses on model validation, stress testing, and systematic strategies.</div>
             <a href="https://linkedin.com/in/malektrimeche" target="_blank" class="linkedin-icon">
                 <img src="linkedin.png" />
             </a>
@@ -2473,6 +2473,7 @@ def page_our_team():
 
     </div>
     """, unsafe_allow_html=True)
+
 
 
 
