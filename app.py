@@ -117,10 +117,10 @@ def page_about():
 
             .paragraph {
                 font-size: 20px;
-                color: #1f2933;
-                line-height: 1.9;
-                margin-bottom: 30px;
-                max-width: 780px;
+                color: #111827;
+                line-height: 2.0;
+                margin-bottom: 40px;
+                max-width: 820px;
             }
 
             .paragraph strong {
@@ -184,7 +184,6 @@ def page_about():
         unsafe_allow_html=True,
     )
 
-    # ------- HERO -------
     st.markdown(
         """
         <div class="hero">
@@ -198,14 +197,23 @@ def page_about():
         unsafe_allow_html=True,
     )
 
-    # ------- WHO WE ARE -------
-    col1, col2 = st.columns([1.5, 1])
+    st.markdown("""
+        <div style='position: sticky; top: 0; background: white; z-index: 1000; padding: 12px 0; border-bottom: 1px solid #eee;'>
+            <a href="#who" style="margin: 0 15px;">Who We Are</a>
+            <a href="#what" style="margin: 0 15px;">What We Do</a>
+            <a href="#why" style="margin: 0 15px;">Why Phi</a>
+            <a href="#philosophy" style="margin: 0 15px;">Philosophy</a>
+            <a href="#contact" style="margin: 0 15px;">Contact</a>
+        </div>
+    """, unsafe_allow_html=True)
 
+    col1, col2 = st.columns([1.5, 1])
     with col1:
-        st.markdown('<div class="section-heading">Who We Are</div>', unsafe_allow_html=True)
+        st.markdown('<div id="who" class="section-heading">💼 Who We Are</div>', unsafe_allow_html=True)
         st.markdown(
             """
             <div class="paragraph">
+            <strong>Experts frustrated with complexity.</strong><br>
             Phi Investment Capital was founded by former asset managers, quantitative researchers, 
             and risk engineers who all shared the same frustration: too many tools either hide the 
             investment process in a black box, or drown users in complexity without improving decisions.
@@ -218,34 +226,42 @@ def page_about():
             """,
             unsafe_allow_html=True,
         )
-
     with col2:
         st.markdown('<div class="image-frame">', unsafe_allow_html=True)
         st.image("invest_future.png", use_column_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
-
-    # ------- WHAT WE DO -------
-    st.markdown('<div class="section-heading">What We Do</div>', unsafe_allow_html=True)
-    st.markdown(
-        """
-        <div class="paragraph">
-        <strong>Phi is a portfolio design engine.</strong> 
-        Starting from a clean investment universe, clients can encode their own investment beliefs, 
-        risk appetite, and constraints directly into the model. The platform then translates those 
-        inputs into fully specified, implementable portfolios using robust quantitative techniques.
+        st.markdown("""
+        <div class="image-caption" style="text-align:center; color:#6b7280; font-size:14px; margin-top:10px;">
+            Turning quantitative research into usable portfolios
         </div>
-        <div class="paragraph">
-        Behind the interface, we combine capital markets research, covariance shrinkage, rolling
-        estimation windows, and disciplined rebalancing rules. On the surface, clients see only what
-        matters: clear trade-offs, intuitive analytics, and portfolios that can be explained to an 
-        investment committee without hand-waving.
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+        """, unsafe_allow_html=True)
 
-    # ------- WHY PHI -------
-    st.markdown('<div class="section-heading">Why Phi</div>', unsafe_allow_html=True)
+    st.markdown('<hr />', unsafe_allow_html=True)
+
+    col4 = st.columns([1])[0]
+    with col4:
+        st.markdown('<div id="what" class="section-heading">🛠️ What We Do</div>', unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div class="paragraph">
+            <strong>Phi is a portfolio design engine.</strong><br>
+            Starting from a clean investment universe, clients can encode their own investment beliefs, 
+            risk appetite, and constraints directly into the model. The platform then translates those 
+            inputs into fully specified, implementable portfolios using robust quantitative techniques.
+            </div>
+            <div class="paragraph">
+            Behind the interface, we combine capital markets research, covariance shrinkage, rolling
+            estimation windows, and disciplined rebalancing rules. On the surface, clients see only what
+            matters: clear trade-offs, intuitive analytics, and portfolios that can be explained to an 
+            investment committee without hand-waving.
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    st.markdown('<hr />', unsafe_allow_html=True)
+
+    st.markdown('<div id="why" class="section-heading">✨ Why Phi</div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="paragraph">
@@ -262,8 +278,9 @@ def page_about():
         unsafe_allow_html=True,
     )
 
-    # ------- WHO WE SERVE -------
-    st.markdown('<div class="section-heading">Who We Serve</div>', unsafe_allow_html=True)
+    st.markdown('<hr />', unsafe_allow_html=True)
+
+    st.markdown('<div class="section-heading">🌍 Who We Serve</div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="paragraph">
@@ -276,8 +293,9 @@ def page_about():
         unsafe_allow_html=True,
     )
 
-    # ------- OUR PHILOSOPHY -------
-    st.markdown('<div class="section-heading">Our Philosophy</div>', unsafe_allow_html=True)
+    st.markdown('<hr />', unsafe_allow_html=True)
+
+    st.markdown('<div id="philosophy" class="section-heading">📐 Our Philosophy</div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="paragraph">
@@ -294,7 +312,9 @@ def page_about():
         unsafe_allow_html=True,
     )
 
-    # ------- CONTACT -------
+    st.markdown('<hr />', unsafe_allow_html=True)
+
+    st.markdown('<div id="contact" class="section-heading">📬 Contact Us</div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="contact-box">
