@@ -2457,21 +2457,21 @@ def page_our_team():
             <div class="member-name">Rean Morinaj</div>
             <div class="member-role">Quantitative Research</div>
             <div class="member-bio">Specializes in modeling, stats and robust optimization logic.</div>
-            <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
+            <div class="linkedin"><a href="https://www.linkedin.com/in/rean-morinaj/" target="_blank">LinkedIn</a></div>
         </div>
         <div class="team-member">
             <img src="data:image/jpeg;base64,{illia_img}">
             <div class="member-name">Illia Shapkin</div>
             <div class="member-role">Quant & Portfolio Strategy</div>
             <div class="member-bio">Focused on risk analysis and optimization. Data-driven decision maker.</div>
-            <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
+            <div class="linkedin"><a href="https://www.linkedin.com/in/illia-shapkin-b1956b226/" target="_blank">LinkedIn</a></div>
         </div>
         <div class="team-member">
             <img src="data:image/jpeg;base64,{malek_img}">
             <div class="member-name">Malek Trimeche</div>
             <div class="member-role">Client Relations</div>
             <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
-            <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
+            <div class="linkedin"><a href="https://www.linkedin.com/in/malek-trimeche-4616b8352/" target="_blank">LinkedIn</a></div>
         </div>
     </div>
     """
