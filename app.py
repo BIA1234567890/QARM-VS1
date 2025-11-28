@@ -2449,7 +2449,7 @@ def page_our_team():
             <img src="data:image/jpeg;base64,{petrit_img}">
             <div class="member-name">Petrit Gashi</div>
             <div class="member-role">Client Relations</div>
-            <div class="member-bio">Focused on risk analysis and optimization. Data-driven decision maker.</div>
+            <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
             <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
         </div>
         <div class="team-member">
@@ -2463,7 +2463,7 @@ def page_our_team():
             <img src="data:image/jpeg;base64,{illia_img}">
             <div class="member-name">Illia Shapkin</div>
             <div class="member-role">Quant & Portfolio Strategy</div>
-            <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
+            <div class="member-bio">Focused on risk analysis and optimization. Data-driven decision maker.</div>
             <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
         </div>
         <div class="team-member">
@@ -2476,6 +2476,9 @@ def page_our_team():
     </div>
     """
     st.markdown(html, unsafe_allow_html=True)
+
+
+
 
 
 if __name__ == "__main__":
