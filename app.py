@@ -367,17 +367,48 @@ def page_portfolio_optimization(data):
         unsafe_allow_html=True
     )
 
-    st.markdown(
+        st.markdown(
         """
-        This tool builds a **constrained multi-asset portfolio** based on your preferences:
+        <style>
+            .opt-text {
+                font-size: 18px;
+                color: #222831;
+                font-family: 'Open Sans', sans-serif;
+                margin-bottom: 30px;
+            }
 
-        1. Choose the **market universe & technical settings**  
-        2. Refine the **investment universe with filters** (sectors, ESG, asset classes)  
-        3. Answer a short **risk profile questionnaire**  
-        4. Set **portfolio constraints** (sectors, ESG, asset classes, max weights)  
-        5. Run the **optimization & backtest** and analyze the results  
-        """
+            .opt-steps {
+                font-size: 17px;
+                font-family: 'Open Sans', sans-serif;
+                line-height: 1.75;
+                color: #2d2d2d;
+                padding-left: 20px;
+            }
+
+            .opt-steps li {
+                margin-bottom: 12px;
+            }
+
+            .opt-steps strong {
+                color: #133c55;
+            }
+        </style>
+
+        <div class="opt-text">
+            This tool builds a <strong>constrained multi-asset portfolio</strong> based on your preferences:
+        </div>
+
+        <ol class="opt-steps">
+            <li>Choose the <strong>market universe & technical settings</strong></li>
+            <li>Refine the <strong>investment universe with filters</strong> (sectors, ESG, asset classes)</li>
+            <li>Answer a short <strong>risk profile questionnaire</strong></li>
+            <li>Set <strong>portfolio constraints</strong> (sectors, ESG, asset classes, max weights)</li>
+            <li>Run the <strong>optimization & backtest</strong> and analyze the results</li>
+        </ol>
+        """,
+        unsafe_allow_html=True
     )
+
 
     # ============================================================
     # STEP 1 – GENERAL SETTINGS
