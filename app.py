@@ -52,7 +52,7 @@ def main():
     elif page == "Become a Client":
         page_new_client()
     elif page == "Our Team":
-    page_our_team()
+        page_our_team()
 
 
 
