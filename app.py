@@ -1917,7 +1917,7 @@ def page_investment_approach():
         }
 
         .hero-title {
-            color: #ffffff;
+            color: #ffffff !important;
             font-size: 44px;
             font-weight: 700;
             margin: 0;
