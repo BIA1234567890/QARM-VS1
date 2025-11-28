@@ -2356,17 +2356,15 @@ import io
 def img_to_base64(path):
     img = Image.open(path)
     buf = io.BytesIO()
-    img.save(buf, format="JPEG")  # Use "JPEG" instead of "jpg"
+    img.save(buf, format="JPEG")
     byte_im = buf.getvalue()
     return base64.b64encode(byte_im).decode()
 
 def page_our_team():
-    # Convert images
     petrit_img = img_to_base64("Petrit.jpg")
     rean_img = img_to_base64("Rean.jpg")
     illia_img = img_to_base64("illia.jpg")
 
-    # Inject custom CSS + hero section
     st.markdown(
         """
         <style>
@@ -2444,10 +2442,8 @@ def page_our_team():
         unsafe_allow_html=True
     )
 
-    # Team members HTML
     html = f"""
     <div class="team-grid">
-
         <div class="team-member">
             <img src="data:image/jpeg;base64,{petrit_img}">
             <div class="member-name">Petrit Gashi</div>
@@ -2455,7 +2451,6 @@ def page_our_team():
             <div class="member-bio">Focused on risk analysis and optimization. Data-driven decision maker.</div>
             <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
         </div>
-
         <div class="team-member">
             <img src="data:image/jpeg;base64,{rean_img}">
             <div class="member-name">Rean Morinaj</div>
@@ -2463,7 +2458,6 @@ def page_our_team():
             <div class="member-bio">Specializes in modeling, stats and robust optimization logic.</div>
             <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
         </div>
-
         <div class="team-member">
             <img src="data:image/jpeg;base64,{illia_img}">
             <div class="member-name">Illia Shapkin</div>
@@ -2471,7 +2465,6 @@ def page_our_team():
             <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
             <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
         </div>
-
         <div class="team-member">
             <img src="data:image/jpeg;base64,{illia_img}">
             <div class="member-name">Malek Trimeche</div>
@@ -2479,11 +2472,9 @@ def page_our_team():
             <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
             <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
         </div>
-
     </div>
     """
     st.markdown(html, unsafe_allow_html=True)
-
 
 
 if __name__ == "__main__":
