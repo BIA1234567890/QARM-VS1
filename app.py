@@ -1898,8 +1898,30 @@ def page_ai_assistant():
 def page_investment_approach():
     st.markdown("""
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+        html, body, [class*="css"] {
             font-family: 'Open Sans', sans-serif;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #133c55 0%, #1d4e6e 55%, #2a628f 100%);
+            height: 230px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 32px 46px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+        }
+
+        .hero-title {
+            color: #ffffff;
+            font-size: 44px;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .section-container {
@@ -1921,9 +1943,6 @@ def page_investment_approach():
             font-weight: 700;
             color: #1c1c1e;
             margin-bottom: 24px;
-            border-bottom: 3px solid #00dbaf;
-            padding-bottom: 8px;
-            width: fit-content;
         }
 
         .subsection-title {
@@ -1942,6 +1961,13 @@ def page_investment_approach():
     </style>
     """, unsafe_allow_html=True)
 
+    # HERO SECTION
+    st.markdown("""
+    <div class="hero">
+        <h1 class="hero-title">Investment Strategy</h1>
+    </div>
+    """, unsafe_allow_html=True)
+
     # SECTION 1 – Customization and Preferences
     st.markdown('<div class="section-container section-white">', unsafe_allow_html=True)
     st.markdown('<div class="section-title">1. Customization and Preferences</div>', unsafe_allow_html=True)
@@ -1955,14 +1981,12 @@ def page_investment_approach():
     # SECTION 2 – Risk and ESG preferences
     st.markdown('<div class="section-container section-light">', unsafe_allow_html=True)
     st.markdown('<div class="section-title">2. Risk and ESG Preferences</div>', unsafe_allow_html=True)
-
     st.markdown("""
     <div class="subsection-title">Risk profile</div>
     <div class="section-text">
     Each client completes a risk questionnaire that helps us define their overall investment profile. This process assigns a risk level ranging from conservative to aggressive, helping us balance the trade-off between capital preservation and growth potential in a disciplined and transparent way.
     </div>
     """, unsafe_allow_html=True)
-
     st.markdown("""
     <div class="subsection-title">ESG integration</div>
     <div class="section-text">
@@ -1974,7 +1998,6 @@ def page_investment_approach():
     # SECTION 3 – Costs and Fees
     st.markdown('<div class="section-container section-white">', unsafe_allow_html=True)
     st.markdown('<div class="section-title">3. Costs and Fees in the Backtest</div>', unsafe_allow_html=True)
-
     st.markdown("""
     <div class="subsection-title">Transaction costs</div>
     <div class="section-text">
@@ -1986,14 +2009,12 @@ def page_investment_approach():
     # SECTION 4 – Optimization approach
     st.markdown('<div class="section-container section-light">', unsafe_allow_html=True)
     st.markdown('<div class="section-title">4. Optimization Framework</div>', unsafe_allow_html=True)
-
     st.markdown("""
     <div class="subsection-title">Markowitz model</div>
     <div class="section-text">
     At the heart of our approach lies the classical Markowitz framework for mean-variance optimization. This model aims to find the most efficient allocation of capital across a set of assets by maximizing expected return for a given level of risk. It ensures full capital deployment and imposes constraints to keep portfolio weights within realistic bounds.
     </div>
     """, unsafe_allow_html=True)
-
     st.markdown("""
     <div class="subsection-title">Additional constraints</div>
     <div class="section-text">
@@ -2005,7 +2026,6 @@ def page_investment_approach():
     # SECTION 5 – Rebalancing logic
     st.markdown('<div class="section-container section-white">', unsafe_allow_html=True)
     st.markdown('<div class="section-title">5. Rebalancing and Portfolio Updates</div>', unsafe_allow_html=True)
-
     st.markdown("""
     <div class="section-text">
     We review and rebalance client portfolios on a monthly basis. 
@@ -2015,7 +2035,6 @@ def page_investment_approach():
     and fully aligned with the client’s long-term investment objectives.
     </div>
     """, unsafe_allow_html=True)
-
     st.markdown('</div>', unsafe_allow_html=True)
 
 
