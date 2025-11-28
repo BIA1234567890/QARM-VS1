@@ -295,7 +295,7 @@ def page_about():
 
     st.markdown('<hr />', unsafe_allow_html=True)
 
-    st.markdown('<div id="philosophy" class="section-heading">📐 Our Philosophy</div>', unsafe_allow_html=True)
+    st.markdown('<div id="philosophy" class="section-heading"> Our Philosophy</div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="paragraph">
