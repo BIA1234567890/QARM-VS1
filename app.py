@@ -314,7 +314,7 @@ def page_about():
 
     st.markdown('<hr />', unsafe_allow_html=True)
 
-    st.markdown('<div id="contact" class="section-heading"> Contact Us</div>', unsafe_allow_html=True)
+    st.markdown('<div id="contact" class="section-heading"> </div>', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="contact-box">
