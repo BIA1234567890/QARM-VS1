@@ -2355,7 +2355,7 @@ import io
 def img_to_base64(path):
     img = Image.open(path)
     buf = io.BytesIO()
-    img.save(buf, format="jpeg")   # IMPORTANT: JPEG here
+    img.save(buf, format="jpg")   # IMPORTANT: JPEG here
     byte_im = buf.getvalue()
     return base64.b64encode(byte_im).decode()
     
@@ -2443,44 +2443,44 @@ def page_our_team():
         unsafe_allow_html=True
     )
 
-    # TEAM HTML
+    # TEAM HTML  (FIXED — NO INDENT BEFORE <div>)
     html = f"""
-    <div class="team-grid">
+<div class="team-grid">
 
-        <div class="team-member">
-            <img src="data:image/jpeg;base64,{petrit_img}">
-            <div class="member-name">Petrit Gashi</div>
-            <div class="member-role">Quant & Portfolio Strategy</div>
-            <div class="member-bio">Focused on risk analysis and optimization. Data-driven decision maker.</div>
-            <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
-        </div>
-
-        <div class="team-member">
-            <img src="data:image/jpeg;base64,{rean_img}">
-            <div class="member-name">Illia Shapkin</div>
-            <div class="member-role">Client Relations</div>
-            <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
-            <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
-        </div>
-
-        <div class="team-member">
-            <img src="data:image/jpeg;base64,{rean_img}">
-            <div class="member-name">Rean Morinaj</div>
-            <div class="member-role">Quantitative Research</div>
-            <div class="member-bio">Specializes in modeling, stats and robust optimization logic.</div>
-            <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
-        </div>
-
-        <div class="team-member">
-            <img src="data:image/jpeg;base64,{illia_img}">
-            <div class="member-name">Malek Trimeche</div>
-            <div class="member-role">Client Relations</div>
-            <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
-            <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
-        </div>
-
+    <div class="team-member">
+        <img src="data:image/jpeg;base64,{petrit_img}">
+        <div class="member-name">Petrit Gashi</div>
+        <div class="member-role">Quant & Portfolio Strategy</div>
+        <div class="member-bio">Focused on risk analysis and optimization. Data-driven decision maker.</div>
+        <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
     </div>
-    """
+
+    <div class="team-member">
+        <img src="data:image/jpeg;base64,{rean_img}">
+        <div class="member-name">Illia Shapkin</div>
+        <div class="member-role">Client Relations</div>
+        <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
+        <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
+    </div>
+
+    <div class="team-member">
+        <img src="data:image/jpeg;base64,{rean_img}">
+        <div class="member-name">Rean Morinaj</div>
+        <div class="member-role">Quantitative Research</div>
+        <div class="member-bio">Specializes in modeling, stats and robust optimization logic.</div>
+        <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
+    </div>
+
+    <div class="team-member">
+        <img src="data:image/jpeg;base64,{illia_img}">
+        <div class="member-name">Malek Trimeche</div>
+        <div class="member-role">Client Relations</div>
+        <div class="member-bio">Analytical and client-focused. Building bridges between finance and people.</div>
+        <div class="linkedin"><a href="#" target="_blank">LinkedIn</a></div>
+    </div>
+
+</div>
+"""
 
     st.markdown(html, unsafe_allow_html=True)
 
