@@ -139,8 +139,8 @@ def page_about():
 
             .image-frame img {
                 width: 100%;
-                height: 320px;           /* <<–– FIXED HEIGHT */
-                object-fit: cover;       /* <<–– CROPS CLEANLY LIKE INVEST_FUTURE */
+                height: 320px;
+                object-fit: cover;
                 border-radius: 22px;
                 box-shadow: 0 10px 24px rgba(0, 0, 0, 0.20);
             }
@@ -225,32 +225,24 @@ def page_about():
         st.markdown('</div>', unsafe_allow_html=True)
 
     # ------- WHAT WE DO -------
-    col3, col4 = st.columns([1, 1.5])
-
-    with col3:
-        st.markdown('<div class="image-frame">', unsafe_allow_html=True)
-        st.image("invest.jpg", use_column_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    with col4:
-        st.markdown('<div class="section-heading">What We Do</div>', unsafe_allow_html=True)
-        st.markdown(
-            """
-            <div class="paragraph">
-            <strong>Phi is a portfolio design engine.</strong> 
-            Starting from a clean investment universe, clients can encode their own investment beliefs, 
-            risk appetite, and constraints directly into the model. The platform then translates those 
-            inputs into fully specified, implementable portfolios using robust quantitative techniques.
-            </div>
-            <div class="paragraph">
-            Behind the interface, we combine capital markets research, covariance shrinkage, rolling
-            estimation windows, and disciplined rebalancing rules. On the surface, clients see only what
-            matters: clear trade-offs, intuitive analytics, and portfolios that can be explained to an 
-            investment committee without hand-waving.
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+    st.markdown('<div class="section-heading">What We Do</div>', unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div class="paragraph">
+        <strong>Phi is a portfolio design engine.</strong> 
+        Starting from a clean investment universe, clients can encode their own investment beliefs, 
+        risk appetite, and constraints directly into the model. The platform then translates those 
+        inputs into fully specified, implementable portfolios using robust quantitative techniques.
+        </div>
+        <div class="paragraph">
+        Behind the interface, we combine capital markets research, covariance shrinkage, rolling
+        estimation windows, and disciplined rebalancing rules. On the surface, clients see only what
+        matters: clear trade-offs, intuitive analytics, and portfolios that can be explained to an 
+        investment committee without hand-waving.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     # ------- WHY PHI -------
     st.markdown('<div class="section-heading">Why Phi</div>', unsafe_allow_html=True)
