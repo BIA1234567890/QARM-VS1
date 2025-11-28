@@ -2351,114 +2351,127 @@ def page_new_client():
 def page_our_team():
     st.markdown("""
         <style>
-            .team-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                gap: 40px;
-                margin-top: 30px;
-            }
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 50px;
+            margin-top: 30px;
+        }
 
-            .team-member {
-                width: 220px;
-                text-align: center;
-                padding: 12px;
-                border-radius: 12px;
-            }
+        .team-member {
+            width: 240px;
+            text-align: center;
+        }
 
-            .team-member img {
-                border-radius: 50%;
-                width: 150px;
-                height: 150px;
-                object-fit: cover;
-                box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-            }
+        .team-member img {
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
 
-            .team-name {
-                font-weight: 600;
-                margin-top: 12px;
-                font-size: 18px;
-            }
+        .team-name {
+            font-weight: 600;
+            margin-top: 12px;
+            font-size: 18px;
+        }
 
-            .team-role {
-                font-size: 14px;
-                color: #777;
-                margin-top: 2px;
-            }
+        .team-role {
+            font-size: 14px;
+            color: #666;
+            margin-top: 2px;
+        }
 
-            .team-desc {
-                font-size: 13px;
-                margin-top: 10px;
-                color: #444;
-            }
+        .team-desc {
+            font-size: 13px;
+            margin-top: 10px;
+            color: #444;
+        }
 
-            .linkedin-icon {
-                margin-top: 8px;
-                display: inline-block;
-            }
+        .linkedin-icon {
+            margin-top: 8px;
+            display: inline-block;
+        }
 
-            .linkedin-icon img {
-                width: 18px;
-                height: 18px;
-            }
+        .linkedin-icon img {
+            width: 18px;
+            height: 18px;
+        }
         </style>
+    """, unsafe_allow_html=True)
 
-        <h2 style='margin-bottom: 0;'>Meet the Team</h2>
-        <p style='margin-top: 4px; font-size: 15px; color: #444;'>We are a team of Master’s students in our second year at HEC Lausanne, specializing in Asset and Risk Management. Our diverse expertise and collaborative approach allow us to deliver cutting-edge insights and innovative strategies tailored to the financial world.</p>
+    st.markdown("## Meet the Team")
+    st.write(
+        "We are a team of Master’s students in our second year at HEC Lausanne, specializing in Asset and Risk Management. "
+        "Our diverse expertise and collaborative approach allow us to deliver cutting-edge insights and innovative strategies tailored to the financial world."
+    )
 
-        <div class="team-container">
+    st.markdown("""
+    <div class="team-container">
 
-            <div class="team-member">
-                <img src="team_andre.jpg" alt="Andre">
-                <div class="team-name">Andre Ferreira Goncalves</div>
-                <div class="team-role">Portfolio Optimisation</div>
-                <div class="team-desc">Andre focuses on risk analysis and data-driven decision making.</div>
-                <a href="https://linkedin.com/in/andre" target="_blank" class="linkedin-icon">
-                    <img src="linkedin.png" />
-                </a>
-            </div>
-
-            <div class="team-member">
-                <img src="team_beatriz.jpg" alt="Beatriz">
-                <div class="team-name">Beatriz Silva Costa</div>
-                <div class="team-role">Client Strategy</div>
-                <div class="team-desc">Beatriz combines analytical thinking with a client-first mindset.</div>
-                <a href="https://linkedin.com/in/beatriz" target="_blank" class="linkedin-icon">
-                    <img src="linkedin.png" />
-                </a>
-            </div>
-
-            <div class="team-member">
-                <img src="team_matheo.jpg" alt="Matheo">
-                <div class="team-name">Matheo Good</div>
-                <div class="team-role">Quantitative Modeling</div>
-                <div class="team-desc">Matheo builds robust models to ensure effective portfolio strategies.</div>
-                <a href="https://linkedin.com/in/matheo" target="_blank" class="linkedin-icon">
-                    <img src="linkedin.png" />
-                </a>
-            </div>
-
-            <div class="team-member">
-                <img src="team_marina.jpg" alt="Marina">
-                <div class="team-name">Marina dos Santos de Oliveira</div>
-                <div class="team-role">Risk & Asset Allocation</div>
-                <div class="team-desc">Marina is dedicated to solving complex allocation problems.</div>
-                <a href="https://linkedin.com/in/marina" target="_blank" class="linkedin-icon">
-                    <img src="linkedin.png" />
-                </a>
-            </div>
-
-            <div class="team-member">
-                <img src="team_aksel.jpg" alt="Aksel">
-                <div class="team-name">Aksel Oztas</div>
-                <div class="team-role">Global Markets</div>
-                <div class="team-desc">Aksel focuses on global strategy and long-term portfolio growth.</div>
-                <a href="https://linkedin.com/in/aksel" target="_blank" class="linkedin-icon">
-                    <img src="linkedin.png" />
-                </a>
-            </div>
-
+        <div class="team-member">
+            <img src="team_andre.jpg" alt="Andre">
+            <div class="team-name">Andre Ferreira Goncalves</div>
+            <div class="team-role">Portfolio Optimisation</div>
+            <div class="team-desc">Andre focuses on risk analysis and data-driven decision making.</div>
+            <a href="https://linkedin.com/in/andre" target="_blank" class="linkedin-icon">
+                <img src="linkedin.png" />
+            </a>
         </div>
+
+        <div class="team-member">
+            <img src="team_beatriz.jpg" alt="Beatriz">
+            <div class="team-name">Beatriz Silva Costa</div>
+            <div class="team-role">Client Strategy</div>
+            <div class="team-desc">Beatriz combines analytical thinking with a client-first mindset.</div>
+            <a href="https://linkedin.com/in/beatriz" target="_blank" class="linkedin-icon">
+                <img src="linkedin.png" />
+            </a>
+        </div>
+
+        <div class="team-member">
+            <img src="team_matheo.jpg" alt="Matheo">
+            <div class="team-name">Matheo Good</div>
+            <div class="team-role">Quantitative Modeling</div>
+            <div class="team-desc">Matheo builds robust models to ensure effective portfolio strategies.</div>
+            <a href="https://linkedin.com/in/matheo" target="_blank" class="linkedin-icon">
+                <img src="linkedin.png" />
+            </a>
+        </div>
+
+        <div class="team-member">
+            <img src="team_marina.jpg" alt="Marina">
+            <div class="team-name">Marina dos Santos de Oliveira</div>
+            <div class="team-role">Risk & Asset Allocation</div>
+            <div class="team-desc">Marina is dedicated to solving complex allocation problems.</div>
+            <a href="https://linkedin.com/in/marina" target="_blank" class="linkedin-icon">
+                <img src="linkedin.png" />
+            </a>
+        </div>
+
+        <div class="team-member">
+            <img src="team_aksel.jpg" alt="Aksel">
+            <div class="team-name">Aksel Oztas</div>
+            <div class="team-role">Global Markets</div>
+            <div class="team-desc">Aksel focuses on global strategy and long-term portfolio growth.</div>
+            <a href="https://linkedin.com/in/aksel" target="_blank" class="linkedin-icon">
+                <img src="linkedin.png" />
+            </a>
+        </div>
+
+                <div class="team-member">
+            <img src="team_florian.jpg" alt="Malek">
+            <div class="team-name">Malek Trimeche</div>
+            <div class="team-role">Quant Research</div>
+            <div class="team-desc">Malek focuses on model validation, portfolio stress testing, and systematic strategies.</div>
+            <a href="https://linkedin.com/in/malektrimeche" target="_blank" class="linkedin-icon">
+                <img src="linkedin.png" />
+            </a>
+        </div>
+
+    </div>
     """, unsafe_allow_html=True)
 
 
